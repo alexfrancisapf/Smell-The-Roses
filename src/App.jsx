@@ -1,11 +1,18 @@
 import React from 'react';
-import AuthenticationApp from './js/authentication.jsx';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Trip from './pages/trip';
+import User from './pages/user';
 
 function App() {
   return (
-    <div>
-      <AuthenticationApp />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/trip" element={<Trip/>}/>
+        <Route path="/user" element={<User/>}/>
+      </Routes>
+    </Router>
   )
 }
 
