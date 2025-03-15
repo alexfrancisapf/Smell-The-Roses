@@ -85,10 +85,10 @@ const Home = () => {
         <TextField label="Start (lng,lat)" value={start} onChange={(e) => setStart(e.target.value)} fullWidth />
         <TextField label="Stops (lng,lat;lng,lat)" value={stops} onChange={(e) => setStops(e.target.value)} fullWidth style={{ marginTop: 10 }} />
         <TextField label="End (lng,lat)" value={end} onChange={(e) => setEnd(e.target.value)} fullWidth style={{ marginTop: 10 }} />
-        <Button variant="contained" style={styles.button} onClick={getDirections}>
-          Get Directions
-        </Button>
-        
+        <Button variant="contained" style={styles.button} onClick={getDirections}>Get Directions</Button>
+        <button variant="contained" style={styles.button}>Save Trip</button>
+      </div>
+      <div style={styles.content}>
         <RouteOverview />
       </div>
 
@@ -105,7 +105,7 @@ const styles = {
     overflow: "hidden",
   },
   content: {
-    width: "50%",
+    width: "33%",
     padding: "40px",
     display: "flex",
     flexDirection: "column",
@@ -117,7 +117,7 @@ const styles = {
     backgroundColor: "#FF4013",
   },
   map: {
-    width: "50%",
+    width: "33%",
     height: "100%",
   },
 };

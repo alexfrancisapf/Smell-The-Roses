@@ -35,7 +35,7 @@ const RouteOverview = () => {
   };
   return (
     <>
-      <h1>Trip</h1>
+      <h1>Filters</h1>
       <FetchPois onPoisFetch={onPoisFetch}/>
       <Itinerary generatedText={generatedText} isLoading={isLoading} />
     </>

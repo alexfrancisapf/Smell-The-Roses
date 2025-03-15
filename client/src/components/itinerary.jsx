@@ -3,7 +3,7 @@ import React from 'react';
 const Itinerary = ({ generatedText, isLoading }) => {
   return (
     <div>
-      <h2>Itinerary</h2>
+      <h1>Itinerary</h1>
       {isLoading ? (
         <p>Generating itinerary...</p>
       ) : (
