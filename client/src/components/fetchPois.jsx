@@ -76,12 +76,6 @@ function FetchPois({ onPoisFetch }) {
       
       <button onClick={fetchAPI}>Fetch POIs</button>
       <p>{message}</p>
-      
-      <ul>
-        {pois.map((poi, index) => (
-          <li key={index}>{poi.properties.name}</li>
-        ))}
-      </ul>
     </div>
   );
 }
