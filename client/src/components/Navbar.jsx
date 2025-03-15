@@ -13,7 +13,7 @@ const Navbar = () => {
 
 const styles = {
     navbar: {
-      position: "absolute", // Keep it at the top
+      position: "absolute",
       top: 0,
       left: 0,
       width: "100%",
@@ -28,7 +28,7 @@ const styles = {
       cursor: "pointer",
     },
     logo: {
-      width: "40px", // Adjust size as needed
+      width: "40px",
       height: "40px",
     },
   };
