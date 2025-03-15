@@ -4,7 +4,7 @@ const home = () => {
   return (
     <>
       <div>home</div>
-      <Link to="/trip">trip</Link>
+      <Link to="/trip">trip </Link>
       <Link to="/user">user</Link>
     </>
   )
