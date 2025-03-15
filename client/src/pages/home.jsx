@@ -138,10 +138,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Minimap for location previews */}
-        {startCoords && <AddressMinimap longitude={startCoords[0]} latitude={startCoords[1]} zoom={14} />}
-        {destinationCoords && <AddressMinimap longitude={destinationCoords[0]} latitude={destinationCoords[1]} zoom={14} />}
-
         {/* Time Limit Dropdown */}
         <div style={{ marginTop: "20px" }}>
           <label style={styles.label}>Time Limit</label>
