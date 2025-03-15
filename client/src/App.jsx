@@ -1,8 +1,9 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import Trip from './pages/trip';
 import User from './pages/user';
+import './App.css'
 
 function App() {
   return (
