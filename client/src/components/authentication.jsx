@@ -85,7 +85,7 @@ function AuthenticationApp() {
             fullWidth
             sx={{
               '& .MuiOutlinedInput-root': {
-                borderRadius: '15px', // Circular edges
+                borderRadius: '25px', // Circular edges
               },
             }}
           />
@@ -103,7 +103,7 @@ function AuthenticationApp() {
             fullWidth
             sx={{
               '& .MuiOutlinedInput-root': {
-                borderRadius: '15px', // Circular edges
+                borderRadius: '25px', // Circular edges
               },
             }}
           />
