@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
 
-const MAPBOX_API_KEY = 'pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204ODlqYWZoMGhocDJscTFpYjUxdTBocSJ9.4u8TUl68gG9hX6ANJKaOdw';
+dotenv.config();
 
 // Route to fetch POIs from Mapbox
 const fetchPois = async (req, res) => {
@@ -26,7 +27,7 @@ const fetchPois = async (req, res) => {
   // Uses the category search from the Search Box API: https://docs.mapbox.com/api/search/search-box/
   const categories = "coffee,restaurant" // TODO: Implement filter
   // const apiUrl = `https://api.mapbox.com/search/searchbox/v1/category/${categories}?proximity=${lon},${lat}&access_token=${MAPBOX_API_KEY}`;
-  const apiUrl = `https://api.mapbox.com/search/searchbox/v1/category/${categories}?bbox=${bbox}&limit=25&access_token=${MAPBOX_API_KEY}`;
+  const apiUrl = `https://api.mapbox.com/search/searchbox/v1/category/${categories}?bbox=${bbox}&limit=25&access_token=${process.env.MAPBOX_API_KEY}`;
 
   try {
     console.log("Fetching POIs from Mapbox...");
