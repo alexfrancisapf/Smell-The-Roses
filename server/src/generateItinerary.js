@@ -17,7 +17,7 @@ const createPrompt = (destination, pois) => {
   });
 
   prompt += `
-  Format the itinerary as follows:
+  Format the itinerary as follows (do not include brackets in the final output):
 
   [Category]: [POI Name]  
   [Description of POI]

@@ -57,7 +57,6 @@ function FetchPois({ onPoisFetch }) {
 
   return (
     <div>
-      <h1>Map POIs</h1>
       <input type="text" placeholder="Latitude" value={lat} onChange={e => setLat(e.target.value)} />
       <input type="text" placeholder="Longitude" value={lon} onChange={e => setLon(e.target.value)} />
       
