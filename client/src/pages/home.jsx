@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import { useRef, useEffect, useState } from "react";
 import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormGroup, Button } from "@mui/material";
 import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import { AddressAutofill, AddressMinimap } from "@mapbox/search-js-react";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const Home = () => {
   const mapRef = useRef();
   const mapContainerRef = useRef();
-  const [mapLoaded, setMapLoaded] = useState(false);
 
   const [timeLimit, setTimeLimit] = useState("2 hours");
   const [preferences, setPreferences] = useState({
@@ -20,73 +18,20 @@ const Home = () => {
   });
   const [eaten, setEaten] = useState(false);
 
-  const [startLocation, setStartLocation] = useState("");
-  const [destination, setDestination] = useState("");
-  const [startCoords, setStartCoords] = useState(null);
-  const [destinationCoords, setDestinationCoords] = useState(null);
-
   useEffect(() => {
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A";
-      const map = new mapboxgl.Map({
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A';
+    mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [151.2153, -33.8568],
-      zoom: 9,
     });
 
-    mapRef.current = map;
-    map.on("load", () => setMapLoaded(true));
-
-    return () => map.remove();
-
+    return () => {
+      mapRef.current.remove();
+    };
   }, []);
-
-  useEffect(() => {
-    if (!mapLoaded) return;
-    const map = mapRef.current;
-    
-    map.getSource("route")?.setData({ type: "FeatureCollection", features: [] });
-
-    if (startCoords) {
-      new mapboxgl.Marker().setLngLat(startCoords).addTo(map);
-      map.flyTo({ center: startCoords, zoom: 12 });
-    }
-    if (destinationCoords) {
-      new mapboxgl.Marker().setLngLat(destinationCoords).addTo(map);
-      map.flyTo({ center: destinationCoords, zoom: 12 });
-    }
-
-    if (startCoords && destinationCoords) {
-      fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${startCoords[0]},${startCoords[1]};${destinationCoords[0]},${destinationCoords[1]}?geometries=geojson&access_token=${mapboxgl.accessToken}`)
-        .then((res) => res.json())
-        .then((data) => {
-          const route = data.routes[0].geometry;
-          if (map.getSource("route")) {
-            map.getSource("route").setData({ type: "Feature", geometry: route });
-          } else {
-            map.addSource("route", { type: "geojson", data: { type: "Feature", geometry: route } });
-            map.addLayer({
-              id: "route",
-              type: "line",
-              source: "route",
-              layout: { "line-join": "round", "line-cap": "round" },
-              paint: { "line-color": "#FF4013", "line-width": 4 },
-            });
-          }
-        });
-    }
-  }, [startCoords, destinationCoords, mapLoaded]);
-
 
   const handlePreferenceChange = (event) => {
     setPreferences({ ...preferences, [event.target.name]: event.target.checked });
   };
-
-  // console.log(startLocation)
-  // console.log(destination)
-  // console.log(startCoords)
-  // console.log(destinationCoords)
 
   return (
     <div style={styles.wrapper}>
@@ -94,53 +39,12 @@ const Home = () => {
       <div style={styles.content}>
         <h1 style={{ fontSize: "3rem" }}>Where are you going?</h1>
 
-        {/* Address Input Fields with Mapbox Autofill */}
+        {/* Address Input Fields */}
         <div style={styles.inputContainer}>
-          <div>
-            <label style={styles.label}>Starting Point</label>
-            <AddressAutofill
-              accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
-              onRetrieve={(result) => {
-                setStartCoords(result.features[0].geometry.coordinates);
-                setStartLocation(result.features[0].properties.full_address)
-              }}
-            >
-              <TextField
-                variant="outlined"
-                fullWidth
-                value={startLocation}
-                onChange={(e) => setStartLocation(e.target.value)}
-                InputProps={{ style: { height: 56 } }} 
-              />
-            </AddressAutofill>
-          </div>
-          
+          <TextField label="Starting Point" variant="outlined" fullWidth />
           <p style={{ margin: "0 10px" }}>→</p>
-          
-          <div>
-            <label style={styles.label}>Destination</label>
-            <AddressAutofill
-              accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
-              onRetrieve={(result) => {
-                setDestinationCoords(result.features[0].geometry.coordinates);
-                setDestination(result.features[0].properties.full_address)
-              }}
-            >
-             <TextField
-              variant="outlined"
-              fullWidth
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              InputProps={{ style: { height: 56 } }}
-            />
-
-            </AddressAutofill>
-          </div>
+          <TextField label="Destination" variant="outlined" fullWidth />
         </div>
-
-        {/* Minimap for location previews */}
-        {startCoords && <AddressMinimap longitude={startCoords[0]} latitude={startCoords[1]} zoom={14} />}
-        {destinationCoords && <AddressMinimap longitude={destinationCoords[0]} latitude={destinationCoords[1]} zoom={14} />}
 
         {/* Time Limit Dropdown */}
         <div style={{ marginTop: "20px" }}>
@@ -182,7 +86,6 @@ const Home = () => {
             />
           </FormGroup>
         </div>
-
         <Link to="/trip">trip</Link>
         <Link to="/user">user</Link>
 
@@ -235,3 +138,4 @@ const styles = {
 };
 
 export default Home;
+

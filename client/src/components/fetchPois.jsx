@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function FetchPois() {
+function FetchPois({ onPoisFetch }) {
   const [pois, setPois] = useState([]);
   const [message, setMessage] = useState('');
   const [lat, setLat] = useState('');
   const [lon, setLon] = useState('');
-
   const defaultFilter = "Outdoors,Tourist Attraction,Park,Garden,River,Lake,Forest,Mountain,Island";
   const filterCategories = defaultFilter.split(',');
 
@@ -45,7 +44,8 @@ function FetchPois() {
       const data = response.data;
 
       if (data.success) {
-        setPois(data.pois);
+        setPois(data.pois)
+        onPoisFetch(data.pois);
         setMessage(`${data.pois.length} POIs fetched successfully!`);
       } else {
         setMessage("Error fetching POIs.");
