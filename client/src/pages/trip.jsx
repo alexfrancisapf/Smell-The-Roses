@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import { useRef, useEffect, useState, useCallback } from "react";
-import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormGroup, Button } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import mapboxgl from "mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import RouteOverview from "../components/routeoverview"
-// import AttractionList from "../components/AttractionList";
 import AttractionBoxes from "../components/attractionboxes";
+import axios from 'axios';
+import SelectedAttractions from "../components/selectedattractions";
 
-const Home = () => {
+const Trip = () => {
   const mapRef = useRef();
   const mapContainerRef = useRef();
   const [coordinates, setCoordinates] = useState([
@@ -22,6 +22,85 @@ const Home = () => {
 
   // Map initialization flag
   const [mapInitialized, setMapInitialized] = useState(false);
+  
+  // State for attractions and itinerary
+  const [attractions, setAttractions] = useState([]);
+  const [selectedAttractions, setSelectedAttractions] = useState([]);
+  const [statusMessage, setStatusMessage] = useState('');
+  const [generatedItinerary, setGeneratedItinerary] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const handleAddToRoute = (attraction) => {
+    setSelectedAttractions(prev => {
+      if (!prev.some(item => item.id === attraction.id)) {
+        return [...prev, attraction];
+      }
+      return prev;
+    });
+  };
+
+  // Convert POI data to attraction format
+  const convertPoisToAttractions = (pois) => {
+    return pois.map(poi => ({
+      id: poi.id || `poi-${Math.random().toString(36).substr(2, 9)}`,
+      name: poi.name || poi.title || "Unnamed Attraction",
+      category: poi.kinds ? poi.kinds.split(',')[0] : "Attraction",
+      distance: poi.dist || 0,
+      lat: poi.point?.lat || poi.lat,
+      lon: poi.point?.lon || poi.lon,
+      description: poi.description || ""
+    }));
+  };
+
+  // Fetch POIs from starting point and generate itinerary
+  const fetchPOIsAndGenerateItinerary = useCallback(async () => {
+    if (coordinates.length === 0) return;
+    
+    const startPoint = coordinates[0];
+    const defaultFilters = ["Outdoors", "Tourist Attraction", "Park", "Garden", "River", "Lake", "Forest", "Mountain", "Island"];
+    
+    try {
+      setStatusMessage("Fetching POIs from starting point...");
+      setIsLoading(true);
+      
+      const response = await axios.get(`http://localhost:3000/fetch-pois`, {
+        params: {
+          lat: startPoint[1],
+          lon: startPoint[0],
+          filters: defaultFilters,
+        }
+      });
+      
+      const data = response.data;
+      if (data.success) {
+        // Convert POIs to attraction format
+        const formattedAttractions = convertPoisToAttractions(data.pois);
+        setAttractions(formattedAttractions);
+        setStatusMessage(`${formattedAttractions.length} attractions found. Generating itinerary...`);
+        
+        // Generate itinerary with the fetched POIs
+        const itineraryResponse = await axios.post(`http://localhost:3000/generate-itinerary`, {
+          destination: "Blue Mountains",
+          pois: data.pois
+        });
+        
+        const itineraryData = itineraryResponse.data;
+        if (itineraryData.success) {
+          setGeneratedItinerary(itineraryData.itinerary);
+          setStatusMessage("Itinerary generated successfully!");
+        } else {
+          setStatusMessage("Error generating itinerary.");
+        }
+      } else {
+        setStatusMessage("Error fetching POIs.");
+      }
+    } catch (error) {
+      setStatusMessage(`Error: ${error.message}`);
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [coordinates]);
 
   // Parse coordinates from text
   const parseCoordinates = (text) => {
@@ -49,7 +128,7 @@ const Home = () => {
     }
   };
 
-  // Get directions function (memoized to avoid recreating on every render)
+  // Get directions function
   const getDirections = useCallback(async (coords) => {
     if (!coords || coords.length < 2 || !mapRef.current || !mapInitialized) return;
     
@@ -73,7 +152,6 @@ const Home = () => {
             geometry: route,
           });
         }
-        fetchPOIs(coords);
       } else {
         console.error("No route found between the specified coordinates");
       }
@@ -120,6 +198,8 @@ const Home = () => {
 
       setMapInitialized(true);
       getDirections(coordinates);
+      // Fetch POIs and generate itinerary when map is initialized
+      fetchPOIsAndGenerateItinerary();
     });
 
     return () => {
@@ -153,7 +233,10 @@ const Home = () => {
     
     // Update directions with new coordinates
     getDirections(coordinates);
-  }, [coordinates, getDirections, mapInitialized]);
+    
+    // Fetch POIs and generate itinerary when coordinates change
+    fetchPOIsAndGenerateItinerary();
+  }, [coordinates, getDirections, mapInitialized, fetchPOIsAndGenerateItinerary]);
 
   // Debounced input handler - update directions after typing stops
   const [inputTimeout, setInputTimeout] = useState(null);
@@ -178,6 +261,33 @@ const Home = () => {
     setInputTimeout(timeoutId);
   };
 
+  // Add attractions to the map
+  useEffect(() => {
+    if (!mapRef.current || !mapInitialized || attractions.length === 0) return;
+
+    // Remove previous attraction markers (if any)
+    const attractionMarkers = document.querySelectorAll('.attraction-marker');
+    attractionMarkers.forEach(marker => marker.remove());
+
+    // Add attraction markers to the map
+    attractions.forEach(attraction => {
+      if (attraction.lat && attraction.lon) {
+        const markerElement = document.createElement('div');
+        markerElement.className = 'attraction-marker';
+        markerElement.style.width = '15px';
+        markerElement.style.height = '15px';
+        markerElement.style.borderRadius = '50%';
+        markerElement.style.backgroundColor = '#2196F3';
+        markerElement.style.border = '2px solid white';
+        
+        new mapboxgl.Marker(markerElement)
+          .setLngLat([attraction.lon, attraction.lat])
+          .setPopup(new mapboxgl.Popup().setHTML(`<strong>${attraction.name}</strong><br>${attraction.category}`))
+          .addTo(mapRef.current);
+      }
+    });
+  }, [attractions, mapInitialized]);
+
   return (
     <div style={styles.wrapper}>
       <div style={styles.content}>
@@ -190,13 +300,34 @@ const Home = () => {
           fullWidth 
           helperText="Enter coordinates as longitude,latitude pairs separated by semicolons. First is start, last is end, others are stops."
         />
-        <button variant="contained" style={styles.button}>Save Trip</button>
-        <AttractionBoxes />
+        <Button variant="contained" style={styles.button}>Save Trip</Button>
+        {statusMessage && <p>{statusMessage}</p>}
+        <AttractionBoxes attractions={attractions} onAddToRoute={handleAddToRoute} />
       </div>
+  
       <div style={styles.content}>
-        <RouteOverview />
+        <h2>Selected Attractions</h2>
+        <SelectedAttractions 
+          attractions={selectedAttractions} 
+          onRemove={(attraction) => {
+            setSelectedAttractions(prev => prev.filter(a => a.id !== attraction.id));
+          }}
+        />
+  
+        <h2>Generated Itinerary</h2>
+        {isLoading ? (
+          <p>Loading itinerary...</p>
+        ) : generatedItinerary ? (
+          <div style={styles.itinerary}>
+            {generatedItinerary.split('\n').map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        ) : (
+          <p>No itinerary generated yet.</p>
+        )}
       </div>
-
+  
       <div ref={mapContainerRef} style={styles.map} />
     </div>
   );
@@ -214,6 +345,7 @@ const styles = {
     padding: "40px",
     display: "flex",
     flexDirection: "column",
+    overflowY: "auto",
   },
   button: {
     marginTop: "20px",
@@ -225,6 +357,12 @@ const styles = {
     width: "33%",
     height: "100%",
   },
+  itinerary: {
+    backgroundColor: "#f5f5f5",
+    padding: "15px",
+    borderRadius: "5px",
+    marginTop: "10px",
+  }
 };
 
-export default Home;
+export default Trip;
