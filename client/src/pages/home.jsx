@@ -53,12 +53,14 @@ const Home = () => {
     map.getSource("route")?.setData({ type: "FeatureCollection", features: [] });
 
     if (startCoords) {
-      new mapboxgl.Marker().setLngLat(startCoords).addTo(map);
-      map.flyTo({ center: startCoords, zoom: 12 });
+      const startCoordsArray = startCoords.split(", ").map(Number);
+      new mapboxgl.Marker().setLngLat(startCoordsArray).addTo(map);
+      map.flyTo({ center: startCoordsArray, zoom: 12 });
     }
     if (destinationCoords) {
-      new mapboxgl.Marker().setLngLat(destinationCoords).addTo(map);
-      map.flyTo({ center: destinationCoords, zoom: 12 });
+      const destinationCoordsArray = destinationCoords.split(", ").map(Number);
+      new mapboxgl.Marker().setLngLat(destinationCoordsArray).addTo(map);
+      map.flyTo({ center: destinationCoordsArray, zoom: 12 });
     }
 
     if (startCoords && destinationCoords) {
@@ -94,6 +96,8 @@ const Home = () => {
       return;
     }
 
+    const pois = [startCoords, destinationCoords];
+
     setTripData({
       startLocation,
       startCoords,
@@ -102,6 +106,7 @@ const Home = () => {
       timeLimit,
       preferences,
       eaten,
+      pois
     });
 
     navigate("/trip");
@@ -125,7 +130,7 @@ const Home = () => {
             <AddressAutofill
               accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
               onRetrieve={(result) => {
-                setStartCoords(result.features[0].geometry.coordinates);
+                setStartCoords(`${result.features[0].geometry.coordinates[0]}, ${result.features[0].geometry.coordinates[1]}`);
                 setStartLocation(result.features[0].properties.full_address)
               }}
             >
@@ -147,7 +152,7 @@ const Home = () => {
             <AddressAutofill
               accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
               onRetrieve={(result) => {
-                setDestinationCoords(result.features[0].geometry.coordinates);
+                setDestinationCoords(`${result.features[0].geometry.coordinates[0]}, ${result.features[0].geometry.coordinates[1]}`);
                 setDestination(result.features[0].properties.full_address)
               }}
             >
