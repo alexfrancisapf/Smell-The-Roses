@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { useRef, useEffect, useState } from "react";
 import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormGroup, Button } from "@mui/material";
 import mapboxgl from "mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import RouteOverview from "../components/routeoverview"
+import React, { useContext } from "react"
+import { TripContext } from "../context/TripContext"
+import FetchPois from "../components/fetchPois"
 
-const Home = () => {
+const Trip = () => {
+
+  const { tripData, setTripData } = useContext(TripContext);
+
   const mapRef = useRef();
   const mapContainerRef = useRef();
   const [start, setStart] = useState("151.200439,-33.803759"); // Sydney Opera House coordinates
@@ -14,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A';
-    const [startLng, startLat] = start.split(",").map(Number);
+    // const [startLng, startLat] = start.split(",").map(Number);
     const coordinates = [
       start.split(",").map(Number),
       ...stops, // stops is now already an array
@@ -87,6 +93,10 @@ const Home = () => {
         <TextField label="End (lng,lat)" value={end} onChange={(e) => setEnd(e.target.value)} fullWidth style={{ marginTop: 10 }} />
         <Button variant="contained" style={styles.button} onClick={getDirections}>Get Directions</Button>
         <button variant="contained" style={styles.button}>Save Trip</button>
+        <p>Trip Data: {tripData ? JSON.stringify(tripData) : "No trip selected"}</p>
+        <button onClick={() => setTripData({ destination: "Japan", timeLimit: "2 hours" })}>
+          Set Trip Data
+        </button>
       </div>
       <div style={styles.content}>
         <RouteOverview />
@@ -94,6 +104,7 @@ const Home = () => {
 
       <div ref={mapContainerRef} style={styles.map} />
     </div>
+    
   );
 };
 
@@ -122,4 +133,4 @@ const styles = {
   },
 };
 
-export default Home;
+export default Trip;
