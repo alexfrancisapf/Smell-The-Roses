@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { TripContext } from '../context/TripContext';
 
 function FetchPois({ onPoisFetch }) {
+  const { tripData } = useContext(TripContext);
   const [pois, setPois] = useState([]);
   const [message, setMessage] = useState('');
   const [lat, setLat] = useState('');
@@ -54,7 +56,23 @@ function FetchPois({ onPoisFetch }) {
       setMessage("Failed to fetch POIs.");
     }
   };
+  useEffect(() => {
+    if (tripData?.destinationCoords) {
+      const [tripLon, tripLat] = tripData.destinationCoords;
+      setLat(tripLat);
+      setLon(tripLon);
+    }
+  }, [tripData]);
 
+  useEffect(() => {
+    if (lat && lon) {
+      fetchAPI();
+    }
+  }, [lat, lon]);
+
+  console.log(tripData)
+  console.log(lat)
+  console.log(lon)
   return (
     <div>
       <input type="text" placeholder="Latitude" value={lat} onChange={e => setLat(e.target.value)} />
