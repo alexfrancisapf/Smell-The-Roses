@@ -6,10 +6,23 @@ import axios from 'axios';
 const RouteOverview = () => {
   const [generatedText, setGeneratedText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [poisData, setPoisData] = useState([]);
+  const [selectedPois, setSelectedPois] = useState([]);
 
   // On POIs Fetch
   const onPoisFetch = (pois) => {
+    setPoisData(pois);
     generateItinerary(pois);
+  };
+
+  const onAddToRoute = (poi) => {
+    setSelectedPois(prev => {
+      // Check if POI already exists in the selected list
+      if (!prev.some(item => item.id === poi.id)) {
+        return [...prev, poi];
+      }
+      return prev;
+    });
   };
 
   // Generates an Itinerary
@@ -36,7 +49,7 @@ const RouteOverview = () => {
   return (
     <>
       <h1>Filters</h1>
-      <FetchPois onPoisFetch={onPoisFetch}/>
+      <FetchPois onPoisFetch={onPoisFetch} />
       <Itinerary generatedText={generatedText} isLoading={isLoading} />
     </>
   );

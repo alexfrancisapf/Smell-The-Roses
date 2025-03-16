@@ -1,65 +1,6 @@
 import React from 'react';
 
-const AttractionBoxes = ({ onAddToRoute }) => {
-  // Sample attraction data - replace with your actual data source
-  const attractions = [
-    {
-      id: 1,
-      name: "Mount Everest",
-      image: "/api/placeholder/400/320", // Replace with actual image path in your project
-      duration: 15,
-      rating: 2,
-      reviewCount: 10,
-      tags: ["Hiking area", "Hill Rd app", "Half St"],
-      openHours: "24 hours",
-      description: "A nice climb and view over rhodes and wentworth point"
-    },
-    {
-      id: 2,
-      name: "Fire Museum",
-      image: "/api/placeholder/400/320", // Replace with actual image path
-      duration: 25,
-      rating: 4.8,
-      reviewCount: 10,
-      tags: ["Hiking area", "Hill Rd app", "Half St"],
-      openHours: "24 hours",
-      description: "A nice climb and view over rhodes and wentworth point"
-    },
-    {
-      id: 3,
-      name: "Sydney Opera House",
-      image: "/api/placeholder/400/320",
-      duration: 45,
-      rating: 4.9,
-      reviewCount: 15,
-      tags: ["Landmark", "Tourist attraction"],
-      openHours: "9am - 5pm",
-      description: "Iconic performing arts venue with distinctive architecture"
-    },
-    {
-      id: 4,
-      name: "Botanic Gardens",
-      image: "/api/placeholder/400/320",
-      duration: 60,
-      rating: 4.7,
-      reviewCount: 12,
-      tags: ["Park", "Gardens", "Outdoor"],
-      openHours: "8am - 6pm",
-      description: "Beautiful garden with diverse plant collections and harbor views"
-    },
-    {
-      id: 5,
-      name: "Taronga Zoo",
-      image: "/api/placeholder/400/320",
-      duration: 120,
-      rating: 4.6,
-      reviewCount: 18,
-      tags: ["Zoo", "Wildlife", "Family"],
-      openHours: "9:30am - 4:30pm",
-      description: "Famous zoo with Australian wildlife and international species"
-    }
-  ];
-
+const AttractionBoxes = ({ pois, onAddToRoute }) => {
   // Generate stars for the rating
   const renderStars = (rating) => {
     return (
@@ -73,43 +14,56 @@ const AttractionBoxes = ({ onAddToRoute }) => {
     );
   };
 
+  // If no POIs are provided, show a loading message or empty state
+  if (!pois || pois.length === 0) {
+    return (
+      <div style={styles.section}>
+        <div style={styles.emptyState}>
+          <p>No attractions available. Please fetch POIs first.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div style={styles.section}>
       <div style={styles.scrollableContainer}>
-        {attractions.map(attraction => (
-          <div key={attraction.id} style={styles.attractionCard}>
+        {pois.map(poi => (
+          <div key={poi.id} style={styles.attractionCard}>
             <div style={styles.imageContainer}>
               <img 
-                src={attraction.image} 
-                alt={attraction.name}
+                src={poi.image || "/api/placeholder/400/320"} 
+                alt={poi.name}
                 style={styles.attractionImage}
               />
-              <span style={styles.duration}>+{attraction.duration}min</span>
+              <span style={styles.duration}>+{poi.duration || 30}min</span>
             </div>
             
             <div style={styles.contentContainer}>
               <div style={styles.nameRow}>
-                <span style={styles.attractionName}>{attraction.name}</span>
+                <span style={styles.attractionName}>{poi.name}</span>
               </div>
               
               <div style={styles.ratingRow}>
-                <span style={styles.ratingValue}>{attraction.rating}</span>
-                {renderStars(attraction.rating)}
-                <span style={styles.reviewCount}>({attraction.reviewCount})</span>
+                <span style={styles.ratingValue}>{poi.rating || 0}</span>
+                {renderStars(poi.rating || 0)}
+                <span style={styles.reviewCount}>({poi.reviewCount || 0})</span>
               </div>
               
               <div style={styles.infoRow}>
-                <span style={styles.openHours}>Open {attraction.openHours}</span>
+                <span style={styles.openHours}>Open {poi.openHours || "24 hours"}</span>
               </div>
               
               <div style={styles.tagsContainer}>
-                {attraction.tags.slice(0, 2).map((tag, index) => (
+                {(poi.tags || []).slice(0, 2).map((tag, index) => (
                   <span key={index} style={styles.tag}>{tag}</span>
                 ))}
-                {attraction.tags.length > 2 && <span style={styles.tag}>+{attraction.tags.length - 2} more</span>}
+                {(poi.tags || []).length > 2 && (
+                  <span style={styles.tag}>+{poi.tags.length - 2} more</span>
+                )}
               </div>
               
-              <p style={styles.description}>{attraction.description}</p>
+              <p style={styles.description}>{poi.description || "No description available"}</p>
               
               <div style={styles.actionButtons}>
                 <button style={styles.bookmarkButton}>
@@ -119,7 +73,7 @@ const AttractionBoxes = ({ onAddToRoute }) => {
                 </button>
                 <button 
                   style={styles.addButton}
-                  onClick={() => onAddToRoute && onAddToRoute(attraction)}
+                  onClick={() => onAddToRoute && onAddToRoute(poi)}
                 >
                   Add to route
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{marginLeft: '4px'}}>
@@ -139,31 +93,33 @@ const AttractionBoxes = ({ onAddToRoute }) => {
 
 const styles = {
   section: {
-    width: '350px', // Increased width from 280px to 350px
+    width: '350px',
     margin: '0',
     padding: '0',
-    height: '70vh', // Changed to 70% of viewport height
+    height: '70vh',
     background: 'transparent',
     position: 'absolute',
     left: 0,
-    bottom: 0, // Changed from top:0 to bottom:0 to position at the bottom
+    bottom: 0,
     borderTop: '1px solid #EEEEEE'
   },
-  sectionTitle: {
-    fontSize: '18px',
-    fontWeight: 'bold',
-    color: '#333333',
-    margin: '0',
-    padding: '15px',
-    borderBottom: '1px solid #EEEEEE'
+  emptyState: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    padding: '20px',
+    color: '#666666',
+    fontSize: '14px',
+    textAlign: 'center'
   },
   scrollableContainer: {
-    height: 'calc(70vh - 50px)', // Adjusted to match the new 70vh height
+    height: 'calc(70vh - 50px)',
     overflowY: 'auto',
     padding: '0',
-    msOverflowStyle: 'none', // IE and Edge
-    scrollbarWidth: 'none', // Firefox
-    '::-webkit-scrollbar': { // Chrome, Safari and Opera
+    msOverflowStyle: 'none',
+    scrollbarWidth: 'none',
+    '::-webkit-scrollbar': {
       display: 'none'
     }
   },
@@ -179,7 +135,7 @@ const styles = {
   imageContainer: {
     position: 'relative',
     width: '100%',
-    height: '140px', // Slightly increased height for the wider container
+    height: '140px',
     borderRadius: '0',
     overflow: 'hidden'
   },
