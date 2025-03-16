@@ -165,7 +165,7 @@ const Home = () => {
         </div>
 
         {/* Time Limit Dropdown */}
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "40px" }}>
           <label style={styles.label}>Time Limit</label>
           <Select value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} fullWidth>
             <MenuItem value="1 hour">1 hour</MenuItem>
@@ -177,7 +177,7 @@ const Home = () => {
         </div>
 
         {/* Preferences Checkboxes */}
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "40px" }}>
           <label style={styles.label}>What do you want to see?</label>
           <FormGroup row>
             {Object.keys(preferences).map((key) => (
@@ -191,7 +191,7 @@ const Home = () => {
         </div>
 
         {/* Have You Eaten? */}
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "40px" }}>
           <label style={styles.label}>Have you eaten yet?</label>
           <FormGroup row>
             <FormControlLabel
@@ -205,11 +205,8 @@ const Home = () => {
           </FormGroup>
         </div>
 
-        <Link to="/trip">trip</Link>
-        <Link to="/user">user</Link>
-
         {/* Submit Button */}
-        <Button variant="contained" color="error" fullWidth style={styles.button} onClick={handleSubmit}>
+        <Button variant="contained" fullWidth style={styles.button} onClick={handleSubmit}>
           Let's go! 🚗
         </Button>
       </div>
@@ -229,7 +226,7 @@ const styles = {
   },
   content: {
     width: "50%",
-    padding: "70px 40px",
+    padding: "80px 40px",
     display: "flex",
     flexDirection: "column",
   },
@@ -237,7 +234,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: "10px",
-    width: "100%"
+    width: "100%",
+    marginTop: "20px"
   },
   label: {
     fontSize: "1.2rem",
@@ -249,10 +247,15 @@ const styles = {
     width: "100%"
   },
   button: {
-    marginTop: "20px",
+    marginTop: "50px",
     fontSize: "1.2rem",
     width: "200px",
     backgroundColor: "#FF4013",
+    boxShadow: "none", 
+    elevation: 0,
+    textTransform: "none",
+    borderRadius: "8px",
+
   },
   map: {
     width: "50%",
