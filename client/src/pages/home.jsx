@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
-import { useRef, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { TripContext } from "../context/TripContext";
+import { useRef, useEffect, useState, useContext } from "react";
 import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormGroup, Button } from "@mui/material";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { AddressAutofill, AddressMinimap } from "@mapbox/search-js-react";
+import { AddressAutofill } from "@mapbox/search-js-react";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { setTripData } = useContext(TripContext);
+
   const mapRef = useRef();
   const mapContainerRef = useRef();
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -81,6 +85,22 @@ const Home = () => {
 
   const handlePreferenceChange = (event) => {
     setPreferences({ ...preferences, [event.target.name]: event.target.checked });
+  };
+
+  const handleSubmit = () => {
+    // Save form data in Context
+    setTripData({
+      startLocation,
+      startCoords,
+      destination,
+      destinationCoords,
+      timeLimit,
+      preferences,
+      eaten,
+    });
+
+    // Navigate to trips page
+    navigate("/trip");
   };
 
   // console.log(startLocation)
@@ -183,7 +203,7 @@ const Home = () => {
         <Link to="/user">user</Link>
 
         {/* Submit Button */}
-        <Button variant="contained" color="error" fullWidth style={styles.button}>
+        <Button variant="contained" color="error" fullWidth style={styles.button} onClick={handleSubmit}>
           Let's go! 🚗
         </Button>
       </div>
