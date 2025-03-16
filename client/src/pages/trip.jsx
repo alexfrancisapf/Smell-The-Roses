@@ -73,6 +73,7 @@ const Home = () => {
             geometry: route,
           });
         }
+        fetchPOIs(coords);
       } else {
         console.error("No route found between the specified coordinates");
       }
