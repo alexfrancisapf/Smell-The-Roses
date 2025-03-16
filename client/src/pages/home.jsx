@@ -88,7 +88,12 @@ const Home = () => {
   };
 
   const handleSubmit = () => {
-    // Save form data in Context
+
+    if (!startLocation.trim() || !destination.trim()) {
+      alert("Please enter both a starting point and a destination.");
+      return;
+    }
+
     setTripData({
       startLocation,
       startCoords,
@@ -99,7 +104,6 @@ const Home = () => {
       eaten,
     });
 
-    // Navigate to trips page
     navigate("/trip");
   };
 
@@ -116,7 +120,7 @@ const Home = () => {
 
         {/* Address Input Fields with Mapbox Autofill */}
         <div style={styles.inputContainer}>
-          <div>
+          <div style={{ width: "100%" }}>
             <label style={styles.label}>Starting Point</label>
             <AddressAutofill
               accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
@@ -128,6 +132,7 @@ const Home = () => {
               <TextField
                 variant="outlined"
                 fullWidth
+                style={styles.address}
                 value={startLocation}
                 onChange={(e) => setStartLocation(e.target.value)}
                 InputProps={{ style: { height: 56 } }} 
@@ -137,7 +142,7 @@ const Home = () => {
           
           <p style={{ margin: "0 10px" }}>→</p>
           
-          <div>
+          <div style={{ width: "100%" }}>
             <label style={styles.label}>Destination</label>
             <AddressAutofill
               accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
@@ -149,6 +154,7 @@ const Home = () => {
              <TextField
               variant="outlined"
               fullWidth
+              style={styles.address}
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
               InputProps={{ style: { height: 56 } }}
@@ -223,7 +229,7 @@ const styles = {
   },
   content: {
     width: "50%",
-    padding: "40px",
+    padding: "70px 40px",
     display: "flex",
     flexDirection: "column",
   },
@@ -231,12 +237,16 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: "10px",
+    width: "100%"
   },
   label: {
     fontSize: "1.2rem",
     fontWeight: "bold",
     display: "block",
     marginBottom: "8px",
+  },
+  address: {
+    width: "100%"
   },
   button: {
     marginTop: "20px",
