@@ -4,7 +4,7 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 // * Firebase configuration
 const firebaseConfig = {
@@ -17,102 +17,130 @@ const firebaseConfig = {
   measurementId: "G-WRCNNNTFQ3"
 };
 
-// * Initialize Firebase
 initializeApp(firebaseConfig);
 
 function AuthenticationApp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const auth = getAuth();
   const db = getFirestore();
 
-  // * User Login
+  const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  };
+
   const handleLogin = () => {
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log("Log In Successful!");
-        window.location.href = 'homepage.html'; // Redirect to homepage
+      .then(() => {
+        window.location.href = '/';
       })
       .catch((error) => {
-        console.log("Login Failed: " + error.message);
+        setError('Login failed: ' + error.message);
       });
   };
 
-  // * User Sign-Up
   const handleSignup = () => {
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        const userData = {
-          email,
-        };
-        console.log("Sign Up Was Successful!");
+        const userData = { email };
 
-        // Saving user data to Firestore
         const docRef = doc(db, "users", user.uid);
         setDoc(docRef, userData)
-          .then(() => window.location.href = 'index.html') // Redirect to index page after signup
+          .then(() => window.location.href = '/')
           .catch((error) => console.error("Error writing document: ", error));
       })
       .catch((error) => {
         const errorCode = error.code;
         if (errorCode === 'auth/email-already-in-use') {
-          console.log("Email Address Already Exists!");
+          setError("Email Address Already Exists!");
         } else {
-          console.log("Unable to Create User: " + errorCode);
+          setError("Unable to Create User: " + errorCode);
         }
       });
   };
 
   return (
-    <div>
-      <form className="auth">
-      <Typography variant="h5" component="h3" gutterBottom>
-        Welcome to Smell the Roses
-      </Typography>
-        <div className="form-group">
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      height="100vh"
+      bgcolor="#f4f6f8"
+    >
+      <Box
+        sx={{
+          backgroundColor: 'white',
+          borderRadius: 2,
+          padding: 3,
+          boxShadow: 3,
+          width: 300,
+        }}
+      >
+        <Typography variant="h5" gutterBottom align="center">
+          Welcome to Smell the Roses 🌹
+        </Typography>
+        {error && <Typography color="error" variant="body2" align="center">{error}</Typography>}
 
-          <TextField
-            hiddenLabel
-            id="email-input"
-            variant="outlined"
-            size="small"
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            fullWidth
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                borderRadius: '25px', // Circular edges
-              },
-            }}
-          />
-          </div>
-        <div className="form-group">
-          <TextField
-            hiddenLabel
-            id="password-input"
-            variant="outlined"
-            size="small"
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            fullWidth
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                borderRadius: '25px', // Circular edges
-              },
-            }}
-          />
-          <a href="#" className="forgot-password">Forgot password?</a>
-        </div>  
-        <Button variant="contained" onClick={handleLogin}>Sign In</Button>
-        <Button variant="contained" onClick={handleSignup}>Sign Up</Button>
-      </form>
-    </div>
+        <TextField
+          label="Email"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          label="Password"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={handleLogin}
+          sx={{ marginTop: 2 }}
+        >
+          Sign In
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          fullWidth
+          onClick={handleSignup}
+          sx={{ marginTop: 1 }}
+        >
+          Sign Up
+        </Button>
+        <Button
+          variant="text"
+          color="primary"
+          fullWidth
+          sx={{ marginTop: 1 }}
+        >
+          Forgot Password?
+        </Button>
+      </Box>
+    </Box>
   );
 }
 
