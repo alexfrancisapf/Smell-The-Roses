@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import images from './images';
-import logo from '.././set_images/image2.png'
 
 function FetchPois() {
   const [pois, setPois] = useState([]);
@@ -12,7 +11,7 @@ function FetchPois() {
 
   const fetchAPI = async () => {
     // const image_htmls = images.map(({id, src}) =>  <img key={id} src={src}/>)
-    console.log(images)
+    // console.log(images)
 
     if (!lat || !lon) {
       setMessage("Latitude and longitude are required");
@@ -32,6 +31,7 @@ function FetchPois() {
         setMessage("Error fetching POIs.");
       }
     } catch (error) {
+      console.log(error)
       setMessage("Failed to fetch POIs.");
     }
   };
@@ -50,13 +50,14 @@ function FetchPois() {
           ))}
         </ul>
         <ul>
-          {images.map(({id, src}, index) => (
-            <img key = {index} src = {'.././set_images/image2.png'}/>
+          {images.map((item, index) => (
+            <li key={index}>
+              <img src={item.src}/>
+              <p>{item.src}</p>
+            </li>
           ))}
         </ul>
-        <img src={logo} width={400}/>
       </div>
-      <div></div>
     </>
     
   );
