@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
-import { useRef, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { TripContext } from "../context/TripContext";
+import { useRef, useEffect, useState, useContext } from "react";
 import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormGroup, Button } from "@mui/material";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { AddressAutofill, AddressMinimap } from "@mapbox/search-js-react";
+import { AddressAutofill } from "@mapbox/search-js-react";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { setTripData } = useContext(TripContext);
+
   const mapRef = useRef();
   const mapContainerRef = useRef();
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -83,6 +87,26 @@ const Home = () => {
     setPreferences({ ...preferences, [event.target.name]: event.target.checked });
   };
 
+  const handleSubmit = () => {
+
+    if (!startLocation.trim() || !destination.trim()) {
+      alert("Please enter both a starting point and a destination.");
+      return;
+    }
+
+    setTripData({
+      startLocation,
+      startCoords,
+      destination,
+      destinationCoords,
+      timeLimit,
+      preferences,
+      eaten,
+    });
+
+    navigate("/trip");
+  };
+
   // console.log(startLocation)
   // console.log(destination)
   // console.log(startCoords)
@@ -96,7 +120,7 @@ const Home = () => {
 
         {/* Address Input Fields with Mapbox Autofill */}
         <div style={styles.inputContainer}>
-          <div>
+          <div style={{ width: "100%" }}>
             <label style={styles.label}>Starting Point</label>
             <AddressAutofill
               accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
@@ -108,6 +132,7 @@ const Home = () => {
               <TextField
                 variant="outlined"
                 fullWidth
+                style={styles.address}
                 value={startLocation}
                 onChange={(e) => setStartLocation(e.target.value)}
                 InputProps={{ style: { height: 56 } }} 
@@ -117,7 +142,7 @@ const Home = () => {
           
           <p style={{ margin: "0 10px" }}>→</p>
           
-          <div>
+          <div style={{ width: "100%" }}>
             <label style={styles.label}>Destination</label>
             <AddressAutofill
               accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
@@ -129,6 +154,7 @@ const Home = () => {
              <TextField
               variant="outlined"
               fullWidth
+              style={styles.address}
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
               InputProps={{ style: { height: 56 } }}
@@ -138,12 +164,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Minimap for location previews */}
-        {startCoords && <AddressMinimap longitude={startCoords[0]} latitude={startCoords[1]} zoom={14} />}
-        {destinationCoords && <AddressMinimap longitude={destinationCoords[0]} latitude={destinationCoords[1]} zoom={14} />}
-
         {/* Time Limit Dropdown */}
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "40px" }}>
           <label style={styles.label}>Time Limit</label>
           <Select value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} fullWidth>
             <MenuItem value="1 hour">1 hour</MenuItem>
@@ -155,7 +177,7 @@ const Home = () => {
         </div>
 
         {/* Preferences Checkboxes */}
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "40px" }}>
           <label style={styles.label}>What do you want to see?</label>
           <FormGroup row>
             {Object.keys(preferences).map((key) => (
@@ -169,7 +191,7 @@ const Home = () => {
         </div>
 
         {/* Have You Eaten? */}
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "40px" }}>
           <label style={styles.label}>Have you eaten yet?</label>
           <FormGroup row>
             <FormControlLabel
@@ -183,11 +205,8 @@ const Home = () => {
           </FormGroup>
         </div>
 
-        <Link to="/trip">trip</Link>
-        <Link to="/user">user</Link>
-
         {/* Submit Button */}
-        <Button variant="contained" color="error" fullWidth style={styles.button}>
+        <Button variant="contained" fullWidth style={styles.button} onClick={handleSubmit}>
           Let's go! 🚗
         </Button>
       </div>
@@ -207,7 +226,7 @@ const styles = {
   },
   content: {
     width: "50%",
-    padding: "40px",
+    padding: "80px 40px",
     display: "flex",
     flexDirection: "column",
   },
@@ -215,6 +234,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: "10px",
+    width: "100%",
+    marginTop: "20px"
   },
   label: {
     fontSize: "1.2rem",
@@ -222,11 +243,19 @@ const styles = {
     display: "block",
     marginBottom: "8px",
   },
+  address: {
+    width: "100%"
+  },
   button: {
-    marginTop: "20px",
+    marginTop: "50px",
     fontSize: "1.2rem",
     width: "200px",
     backgroundColor: "#FF4013",
+    boxShadow: "none", 
+    elevation: 0,
+    textTransform: "none",
+    borderRadius: "8px",
+
   },
   map: {
     width: "50%",
