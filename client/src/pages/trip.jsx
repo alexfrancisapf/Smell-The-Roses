@@ -19,6 +19,16 @@ const Trip = () => {
   const [stops, setStops] = useState([]); // Additional stops
 
   useEffect(() => {
+    if (tripData?.start && tripData?.end) {
+      setStart(tripData.start);
+      setEnd(tripData.end);
+    }
+    if (tripData?.stops) {
+      setStops(tripData.stops.join(";"));
+    }
+  }, [tripData]);
+
+  useEffect(() => {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A';
     // const [startLng, startLat] = start.split(",").map(Number);
     const coordinates = [
