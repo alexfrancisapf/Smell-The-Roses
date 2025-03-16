@@ -33,10 +33,10 @@ const SelectedAttractions = ({ attractions = [], onRemove }) => {
 // Usage example
 const App = () => {
   const [selectedAttractions, setSelectedAttractions] = React.useState([
-    { name: "Sydney", removable: false },
-    { name: "Katoomba Cafe", removable: true },
-    { name: "Three Sisters", removable: true },
-    { name: "Blue Mountains", removable: false }
+    { name: "Willoughby", removable: false },
+    { name: "Bales Park", removable: true },
+    { name: "Wickham Walk", removable: true },
+    { name: "Chatswood", removable: false }
   ]);
 
   const handleRemove = (attractionToRemove) => {
