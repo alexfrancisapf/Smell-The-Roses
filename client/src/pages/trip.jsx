@@ -14,8 +14,8 @@ const Trip = () => {
 
   const mapRef = useRef();
   const mapContainerRef = useRef();
-  const [start, setStart] = useState("151.200439,-33.803759"); // Sydney Opera House coordinates
-  const [end, setEnd] = useState("151.192504, -33.793361");
+  const [start, setStart] = useState(tripData?.startCoords); // Sydney Opera House coordinates
+  const [end, setEnd] = useState(tripData?.destinationCoords);
   const [stops, setStops] = useState([]); // Additional stops
 
   useEffect(() => {
