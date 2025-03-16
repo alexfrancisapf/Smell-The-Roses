@@ -7,10 +7,10 @@ html, body {
 }
 
 body {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
-  .auth {
+.auth {
     display: flex;
     flex-direction: column;
     gap: 16px;

@@ -1,6 +1,6 @@
 import AuthenticationApp from '../components/authentication.jsx';
 
-const user = () => {
+const Login = () => {
   return (
     <>
       <AuthenticationApp />
@@ -8,4 +8,4 @@ const user = () => {
   )
 }
 
-export default user
+export default Login
