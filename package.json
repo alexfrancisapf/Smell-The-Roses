@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "lucide-react": "^0.482.0",
+    "react-bootstrap": "^2.10.9",
+    "react-fontawesome": "^1.7.1"
+  }
+}

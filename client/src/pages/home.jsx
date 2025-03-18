@@ -29,9 +29,10 @@ const Home = () => {
   const [startCoords, setStartCoords] = useState(null);
   const [destinationCoords, setDestinationCoords] = useState(null);
 
+  const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_API_KEY;
+
   useEffect(() => {
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A";
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
       const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -53,14 +54,12 @@ const Home = () => {
     map.getSource("route")?.setData({ type: "FeatureCollection", features: [] });
 
     if (startCoords) {
-      const startCoordsArray = startCoords.split(", ").map(Number);
-      new mapboxgl.Marker().setLngLat(startCoordsArray).addTo(map);
-      map.flyTo({ center: startCoordsArray, zoom: 12 });
+      new mapboxgl.Marker().setLngLat(startCoords).addTo(map);
+      map.flyTo({ center: startCoords, zoom: 12 });
     }
     if (destinationCoords) {
-      const destinationCoordsArray = destinationCoords.split(", ").map(Number);
-      new mapboxgl.Marker().setLngLat(destinationCoordsArray).addTo(map);
-      map.flyTo({ center: destinationCoordsArray, zoom: 12 });
+      new mapboxgl.Marker().setLngLat(destinationCoords).addTo(map);
+      map.flyTo({ center: destinationCoords, zoom: 12 });
     }
 
     if (startCoords && destinationCoords) {
@@ -96,7 +95,7 @@ const Home = () => {
       return;
     }
 
-    const pois = [startCoords, destinationCoords];
+    const routeCoords = [startCoords, destinationCoords];
 
     setTripData({
       startLocation,
@@ -106,16 +105,11 @@ const Home = () => {
       timeLimit,
       preferences,
       eaten,
-      pois
+      routeCoords
     });
 
     navigate("/trip");
   };
-
-  // console.log(startLocation)
-  // console.log(destination)
-  // console.log(startCoords)
-  // console.log(destinationCoords)
 
   return (
     <div style={styles.wrapper}>
@@ -128,9 +122,9 @@ const Home = () => {
           <div style={{ width: "100%" }}>
             <label style={styles.label}>Starting Point</label>
             <AddressAutofill
-              accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
+              accessToken={MAPBOX_ACCESS_TOKEN}
               onRetrieve={(result) => {
-                setStartCoords(`${result.features[0].geometry.coordinates[0]}, ${result.features[0].geometry.coordinates[1]}`);
+                setStartCoords([result.features[0].geometry.coordinates[0], result.features[0].geometry.coordinates[1]]);
                 setStartLocation(result.features[0].properties.full_address)
               }}
             >
@@ -150,9 +144,9 @@ const Home = () => {
           <div style={{ width: "100%" }}>
             <label style={styles.label}>Destination</label>
             <AddressAutofill
-              accessToken="pk.eyJ1IjoiZXRoYW4yODUiLCJhIjoiY204OXRzcGpiMGMyODJxcHVyMjNrZHc5ayJ9.pvhW0YR7n7OX_MWbGT2l5A"
+              accessToken={MAPBOX_ACCESS_TOKEN}
               onRetrieve={(result) => {
-                setDestinationCoords(`${result.features[0].geometry.coordinates[0]}, ${result.features[0].geometry.coordinates[1]}`);
+                setDestinationCoords([result.features[0].geometry.coordinates[0], result.features[0].geometry.coordinates[1]]);
                 setDestination(result.features[0].properties.full_address)
               }}
             >

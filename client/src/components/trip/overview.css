@@ -1,0 +1,124 @@
+
+.overview-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0px 40px;
+}
+
+.overview-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.overview-header{
+    width: fit-content;
+}
+
+.sort-btn {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    background-color: transparent;
+    color: rgb(84, 84, 84);
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.sort-btn:hover {
+    color:#FF4013; 
+}
+.export-btn {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+    color: #636363;
+}
+
+.export-btn:hover {
+    color: #FF4013;
+}
+
+.export-btn-icon {
+    font-size: 21px;
+}
+
+.export-btn:hover .export-btn-icon {
+    color: #FF4013;
+}
+
+.overview-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 40px 0px 40px;
+    gap: 5px;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding-bottom: 25px;
+}
+
+.overview-scroll {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0px 20px 20px 10px;
+    gap: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 250px;
+    border-left: 4px solid #FF4013;
+}
+  
+.attraction {
+    width: 100%;
+    padding: 13px 13px;
+    cursor: move;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    user-select: none;
+    color: rgb(84, 84, 84);
+    background-color: rgb(243, 243, 243);
+    opacity: 1;
+    z-index: 1;
+    gap: 7px;
+}
+
+.attraction:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.attraction.dragging {
+    opacity: 0.5;
+    z-index: 100;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: lighter;
+}
+
+.remove-btn {
+    font-weight: bold;
+    border-radius: 15px;
+    color: #636363;
+    border: 2px solid #636363;
+}
+
+.remove-btn:hover {
+    cursor: pointer;
+    color:#FF4013; 
+    border: 2px solid #FF4013;
+}

@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const openai = new OpenAI({
-  apiKey: process.env.OPEN_API_KEY,
+  apiKey: process.env.OPEN_AI_KEY,
 });
 
 // Create prompt for itinerary
@@ -43,7 +43,7 @@ const generateItinerary = async (req, res) => {
   const { destination, pois } = req.body;
   const prompt = createPrompt(destination, pois);
 
-  if (!prompt) {
+  if (prompt) { // ! Add ! at the front to enable generation
     return res.status(400).json({ error: "No prompt provided" });
   }
 

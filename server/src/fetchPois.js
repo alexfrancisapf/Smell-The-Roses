@@ -36,6 +36,7 @@ const fetchPois = async (req, res) => {
     }
     // Store POIs as a JSON file and return to client
     const data = await response.json();
+
     res.json({
       success: true,
       message: `${data.features.length} POIs successfully retrieved`,

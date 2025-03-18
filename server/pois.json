@@ -1,0 +1,2163 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19279743,
+        -33.7970581
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Bales Park",
+      "mapbox_id": "dXJuOm1ieHBvaTo1MGQ1ZGViMC0wOGQ2LTQxYWUtYjNlNC1hYTRiNTEyODEwZjk",
+      "feature_type": "poi",
+      "address": "42 Stanley St",
+      "full_address": "42 Stanley St, Sydney 2067, Australia",
+      "place_formatted": "Sydney 2067, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDbzRP",
+          "name": "2067"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpENDdxRGc",
+          "name": "Chatswood"
+        },
+        "address": {
+          "name": "42 Stanley St",
+          "address_number": "42",
+          "street_name": "stanley st"
+        },
+        "street": {
+          "name": "stanley st"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.7970581,
+        "longitude": 151.19279743,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.79700715203614,
+            "longitude": 151.19254510191865
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "6be8cce4-a750-486f-b32a-ca78ffba57f3"
+      },
+      "metadata": {
+        "phone": "+61297771000",
+        "website": "https://www.willoughby.nsw.gov.au/Residents/Parks-and-recreation/Parks-reserves-and-playgrounds/Bales-Park",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20593087,
+        -33.79561701
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Willoughby Park Playground",
+      "mapbox_id": "dXJuOm1ieHBvaTo1ZTFhZWU5Ny04MDIyLTQ5NGYtYTkyYS01OTJjN2UzMjlhMzI",
+      "feature_type": "poi",
+      "address": "McClelland St",
+      "full_address": "McClelland St, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSm1LRGc",
+          "name": "Willoughby East"
+        },
+        "street": {
+          "name": "mcclelland st"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.79561701,
+        "longitude": 151.20593087,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.79542081611381,
+            "longitude": 151.20587093021393
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "external_ids": {
+        "dataplor": "ec0b0374-8f34-49ee-ac20-2881bca7658f"
+      },
+      "metadata": {
+        "phone": "+61297771000",
+        "website": "http://www.willoughby.nsw.gov.au/your-neighbourhood/parks-and-playgrounds/willoughby-park/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19221428,
+        -33.80958873
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Artarmon Reserve Playground",
+      "mapbox_id": "dXJuOm1ieHBvaTpkYWVhYjQ0Yi0zYzFiLTRiMGYtYjhhMi1iODI3NjUxZDBlYTQ",
+      "feature_type": "poi",
+      "address": "1 Burra Rd",
+      "full_address": "1 Burra Rd, Sydney 2064, Australia",
+      "place_formatted": "Sydney 2064, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDaTRP",
+          "name": "2064"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpEMWZLRGc",
+          "name": "Artarmon"
+        },
+        "address": {
+          "name": "1 Burra Rd",
+          "address_number": "1",
+          "street_name": "burra rd"
+        },
+        "street": {
+          "name": "burra rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.80958873,
+        "longitude": 151.19221428,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.809865,
+            "longitude": 151.192003
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "external_ids": {
+        "dataplor": "2a7a6919-360b-42b9-8aa6-df6a844bae79"
+      },
+      "metadata": {
+        "website": "https://www.willoughby.nsw.gov.au/Residents/Parks-and-recreation/Parks-reserves-and-playgrounds/Artarmon-Reserve",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19147839,
+        -33.81118441
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Wickham Walk",
+      "mapbox_id": "dXJuOm1ieHBvaTpmNDJiODAzYS1jYTBlLTQzZDctYjFiYS1jMDBiOWQ0NmJhOTk",
+      "feature_type": "poi",
+      "address": "Sydney 2064",
+      "full_address": "Sydney 2064, Australia",
+      "place_formatted": "Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDaTRP",
+          "name": "2064"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpEMWZLRGc",
+          "name": "Artarmon"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81118441,
+        "longitude": 151.19147839,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.811149848835704,
+            "longitude": 151.19148282091848
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "ranger-station",
+      "poi_category": [
+        "nature reserve",
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "nature_reserve",
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "79947f3f-5add-4c1c-b2b1-f40fa026a81b"
+      },
+      "metadata": {
+        "website": "http://www.willoughby.nsw.gov.au/Environment---Sustainability/nature/bushland/Bushwalks/Tracks/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.1903528,
+        -33.81286397
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Artarmon Park",
+      "mapbox_id": "dXJuOm1ieHBvaTo1YWQ3YmZhMC0yYTg1LTQxZmItYWVjNi0xM2YzZDJlM2FhYzI",
+      "feature_type": "poi",
+      "address": "Parkes Rd",
+      "full_address": "Parkes Rd, Sydney 2064, Australia",
+      "place_formatted": "Sydney 2064, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDaTRP",
+          "name": "2064"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpEMWZLRGc",
+          "name": "Artarmon"
+        },
+        "street": {
+          "name": "parkes rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81286397,
+        "longitude": 151.1903528,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81262763629209,
+            "longitude": 151.19028255218873
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "df3bd1af-ed05-440b-9f71-ba79173bd9c0"
+      },
+      "metadata": {
+        "website": "https://www.willoughby.nsw.gov.au/Residents/Parks-and-recreation/Parks-reserves-and-playgrounds/Artarmon-Park",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.200753,
+        -33.811404
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Bicentennial Reserve Oval",
+      "mapbox_id": "dXJuOm1ieHBvaTpjMzljMWU1Ny00YjAzLTRlOTQtYThiYS0xYWRkNTIyNmRhZjc",
+      "feature_type": "poi",
+      "address": "313/441 Willoughby Rd",
+      "full_address": "313/441 Willoughby Rd, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        },
+        "address": {
+          "name": "313/441 Willoughby Rd",
+          "address_number": "313/441",
+          "street_name": "willoughby rd"
+        },
+        "street": {
+          "name": "willoughby rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.811404,
+        "longitude": 151.200753,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81141799172368,
+            "longitude": 151.1995019067108
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "baseball",
+      "poi_category": [
+        "baseball field",
+        "sports ground",
+        "outdoors",
+        "park",
+        "sports"
+      ],
+      "poi_category_ids": [
+        "baseball_field",
+        "field",
+        "outdoors",
+        "park",
+        "sports"
+      ],
+      "external_ids": {
+        "dataplor": "f26d5f04-764b-45fc-bbe8-85a13f3b67b2"
+      },
+      "metadata": {
+        "website": "http://www.willoughby.nsw.gov.au/your-neighbourhood/recreation/sportsground/6/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19988463,
+        -33.81072888
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Willoughby Squash Club",
+      "mapbox_id": "dXJuOm1ieHBvaTpkY2M0ZTg1NC01NzJkLTRmOGMtOGU2ZC0yYmVjODNiNDZlMTM",
+      "feature_type": "poi",
+      "address": "443 Willoughby Rd",
+      "full_address": "443 Willoughby Rd, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        },
+        "address": {
+          "name": "443 Willoughby Rd",
+          "address_number": "443",
+          "street_name": "willoughby rd"
+        },
+        "street": {
+          "name": "willoughby rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81072888,
+        "longitude": 151.19988463,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.8107332458663,
+            "longitude": 151.1994942487888
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "park",
+      "poi_category": [
+        "sports ground",
+        "outdoors",
+        "park",
+        "sports"
+      ],
+      "poi_category_ids": [
+        "field",
+        "outdoors",
+        "park",
+        "sports"
+      ],
+      "external_ids": {
+        "dataplor": "b30a1081-27ff-4043-b048-5297fc2afb32"
+      },
+      "metadata": {
+        "phone": "+61299581399",
+        "website": "http://www.willoughbysquash.com.au/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19572699,
+        -33.81256178
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Prentice Park",
+      "mapbox_id": "dXJuOm1ieHBvaTpmODY3ODFmNC1lOWU0LTRlODYtYWMwZi02YmNkNTcxMjZiOGU",
+      "feature_type": "poi",
+      "address": "Naremburn",
+      "full_address": "Naremburn, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81256178,
+        "longitude": 151.19572699,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.813285200044064,
+            "longitude": 151.19574357989677
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "a9f18577-8561-4e10-a096-3276788108fc"
+      },
+      "metadata": {
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20516334,
+        -33.81151145
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Flatrock Reserve",
+      "mapbox_id": "dXJuOm1ieHBvaTpkYTkyYTY1ZS0xMjdjLTRiMWItYWM2Mi01NjkzZTExZDYxNDE",
+      "feature_type": "poi",
+      "address": "Sydney 2063",
+      "full_address": "Sydney 2063, Australia",
+      "place_formatted": "Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81151145,
+        "longitude": 151.20516334,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.811443,
+            "longitude": 151.204844
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "206ca834-0ab4-432a-93ad-2c1608d73570"
+      },
+      "metadata": {}
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19262986,
+        -33.8043265
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Marlow Street Reserve",
+      "mapbox_id": "dXJuOm1ieHBvaToyMDZmYWUzOS1kM2E0LTQ0MzItYjBkZS1mNTQ2NDc2ZDM2NGI",
+      "feature_type": "poi",
+      "address": "2 Marlow Rd",
+      "full_address": "2 Marlow Rd, Sydney 2064, Australia",
+      "place_formatted": "Sydney 2064, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDaTRP",
+          "name": "2064"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpEMWZLRGc",
+          "name": "Artarmon"
+        },
+        "address": {
+          "name": "2 Marlow Rd",
+          "address_number": "2",
+          "street_name": "marlow rd"
+        },
+        "street": {
+          "name": "marlow rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.8043265,
+        "longitude": 151.19262986,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.804236,
+            "longitude": 151.192867
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "51d54e3f-5f87-4ba5-bbc4-d2a59ab2f282"
+      },
+      "metadata": {
+        "website": "http://www.willoughby.nsw.gov.au/your-neighbourhood/parks-and-playgrounds/marlow-street-reserve/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19690362,
+        -33.81130973
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Parabol Playground",
+      "mapbox_id": "dXJuOm1ieHBvaTo4YWE2ZjgzZS00MGVhLTRkOTYtYjY4YS1hMzdiNzMwYzBmMjk",
+      "feature_type": "poi",
+      "address": "Scott St",
+      "full_address": "Scott St, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        },
+        "street": {
+          "name": "scott st"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81130973,
+        "longitude": 151.19690362,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81123440151037,
+            "longitude": 151.19691432526196
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "external_ids": {
+        "dataplor": "ec2baddd-a2af-481e-b4ec-afdb0409c0e9"
+      },
+      "metadata": {}
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.2000319,
+        -33.81069341
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Vivian Table Tennis Academy",
+      "mapbox_id": "dXJuOm1ieHBvaTo0ZDA2NGE5Mi04NmEyLTRlZWUtYWMwNy03YjAxNzQ1YTNiZWE",
+      "feature_type": "poi",
+      "address": "443 Willoughby Rd",
+      "full_address": "443 Willoughby Rd, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        },
+        "address": {
+          "name": "443 Willoughby Rd",
+          "address_number": "443",
+          "street_name": "willoughby rd"
+        },
+        "street": {
+          "name": "willoughby rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81069341,
+        "longitude": 151.2000319,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.810697931090935,
+            "longitude": 151.19949389017722
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "park",
+      "poi_category": [
+        "sports ground",
+        "outdoors",
+        "park",
+        "sports",
+        "tennis court"
+      ],
+      "poi_category_ids": [
+        "field",
+        "outdoors",
+        "park",
+        "sports",
+        "tennis_courts"
+      ],
+      "external_ids": {
+        "dataplor": "804a80c0-d178-4168-be4c-0c75057f8bbc"
+      },
+      "metadata": {
+        "phone": "+61430127108",
+        "website": "https://www.viviantabletennis.com/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0930"
+              },
+              "close": {
+                "day": 0,
+                "time": "1900"
+              }
+            },
+            {
+              "open": {
+                "day": 1,
+                "time": "0930"
+              },
+              "close": {
+                "day": 1,
+                "time": "1900"
+              }
+            },
+            {
+              "open": {
+                "day": 4,
+                "time": "0930"
+              },
+              "close": {
+                "day": 4,
+                "time": "1900"
+              }
+            },
+            {
+              "open": {
+                "day": 5,
+                "time": "0930"
+              },
+              "close": {
+                "day": 5,
+                "time": "1900"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.21140555,
+        -33.80536823
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Playground",
+      "mapbox_id": "dXJuOm1ieHBvaTozZDk5ODZjOC0zYzY0LTQxNjAtODQ3NS0xMjY1ODU3NTZiOTc",
+      "feature_type": "poi",
+      "address": "The Outpost",
+      "full_address": "The Outpost, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.80536823,
+        "longitude": 151.21140555,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.805389,
+            "longitude": 151.211439
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "external_ids": {
+        "dataplor": "bbd88420-a02c-4630-9a84-3616a19a8759"
+      },
+      "metadata": {
+        "website": "http://www.willoughby.nsw.gov.au/your-neighbourhood/parks-and-playgrounds/warners-park/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20107444,
+        -33.81132059
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Hallstrom Park Playground",
+      "mapbox_id": "dXJuOm1ieHBvaTpmOTllMjVmMS1lYjBjLTRiODEtOWQxYy00NWE2OTAzYjIwYTM",
+      "feature_type": "poi",
+      "address": "Small St",
+      "full_address": "Small St, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        },
+        "street": {
+          "name": "small st"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81132059,
+        "longitude": 151.20107444,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.811197474243635,
+            "longitude": 151.2010819340026
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "external_ids": {
+        "dataplor": "f45574ed-cb57-49eb-85ec-3142268a6843"
+      },
+      "metadata": {
+        "website": "https://www.willoughby.nsw.gov.au/Residents/Parks-and-recreation/Parks-reserves-and-playgrounds/Hallstrom-Park"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20845304,
+        -33.80519858
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Playground",
+      "mapbox_id": "dXJuOm1ieHBvaTo1MTNiZWY3ZS1lNzNhLTQ0OGQtODdhNS1lYjgwZmZlNThmMjA",
+      "feature_type": "poi",
+      "address": "Sydney 2068",
+      "full_address": "Sydney 2068, Australia",
+      "place_formatted": "Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.80519858,
+        "longitude": 151.20845304,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.80510329533395,
+            "longitude": 151.2080558533921
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park",
+        "playground"
+      ],
+      "external_ids": {
+        "dataplor": "703c3697-e018-42c2-806f-fe26ef7584e4"
+      },
+      "metadata": {
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20967581,
+        -33.81014373
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "King Park",
+      "mapbox_id": "dXJuOm1ieHBvaTo0OTM4OTgxYS03OTMyLTRjNDgtOTJkOS01ZGZhM2E1NjE5YTI",
+      "feature_type": "poi",
+      "address": "Harden Ln",
+      "full_address": "Harden Ln, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        },
+        "street": {
+          "name": "harden ln"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81014373,
+        "longitude": 151.20967581,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.8102079722784,
+            "longitude": 151.20996133123737
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "b9e97336-2c5b-4d12-95b0-74a380725234"
+      },
+      "metadata": {
+        "website": "https://www.willoughby.nsw.gov.au/Residents/Parks-and-recreation/Parks-reserves-and-playgrounds/King-Park",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20366911,
+        -33.81154337
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Willoughby Leisure Centre Swim School",
+      "mapbox_id": "dXJuOm1ieHBvaTo1NzM5YTljMC1hM2FlLTRlNzMtYjliMy1jY2RjZTJlNWM2NWY",
+      "feature_type": "poi",
+      "address": "Sydney 2068",
+      "full_address": "Sydney 2068, Australia",
+      "place_formatted": "Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81154337,
+        "longitude": 151.20366911,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81138442883698,
+            "longitude": 151.2036939445567
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park",
+        "swimming pool"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park",
+        "swimming_pool"
+      ],
+      "external_ids": {
+        "dataplor": "e293dff9-646e-409b-8516-7cf3d36f7034"
+      },
+      "metadata": {
+        "phone": "+61299585799",
+        "website": "https://www.willoughbyleisure.com.au/Home",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0800"
+              },
+              "close": {
+                "day": 0,
+                "time": "1200"
+              }
+            },
+            {
+              "open": {
+                "day": 1,
+                "time": "0900"
+              },
+              "close": {
+                "day": 1,
+                "time": "1800"
+              }
+            },
+            {
+              "open": {
+                "day": 2,
+                "time": "0900"
+              },
+              "close": {
+                "day": 2,
+                "time": "1800"
+              }
+            },
+            {
+              "open": {
+                "day": 3,
+                "time": "0900"
+              },
+              "close": {
+                "day": 3,
+                "time": "1800"
+              }
+            },
+            {
+              "open": {
+                "day": 4,
+                "time": "0900"
+              },
+              "close": {
+                "day": 4,
+                "time": "1800"
+              }
+            },
+            {
+              "open": {
+                "day": 5,
+                "time": "0900"
+              },
+              "close": {
+                "day": 5,
+                "time": "1800"
+              }
+            },
+            {
+              "open": {
+                "day": 6,
+                "time": "0800"
+              },
+              "close": {
+                "day": 6,
+                "time": "1200"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20455404,
+        -33.81127673
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Griffin Federation Track",
+      "mapbox_id": "dXJuOm1ieHBvaTo0NTg5ZDQ3Ny0xNjE5LTQ1YmYtYmZkMy01OTZiNjgxMWU4N2U",
+      "feature_type": "poi",
+      "address": "39 Small St",
+      "full_address": "39 Small St, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        },
+        "address": {
+          "name": "39 Small St",
+          "address_number": "39",
+          "street_name": "small st"
+        },
+        "street": {
+          "name": "small st"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81127673,
+        "longitude": 151.20455404,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81132366101908,
+            "longitude": 151.20453896726394
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "ranger-station",
+      "poi_category": [
+        "nature reserve",
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "nature_reserve",
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "51606b8a-a42e-4b1f-a30a-1c739040c479"
+      },
+      "metadata": {
+        "phone": "+61297771000",
+        "website": "http://www.willoughby.nsw.gov.au/Environment---Sustainability/nature/bushland/Bushwalks/Tracks/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.21106426,
+        -33.81077671
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Bellambi Square",
+      "mapbox_id": "dXJuOm1ieHBvaTpkMzg5NzEwNS1mMTc4LTQwNWUtYjU2Ny1iNDNiNDk4MjRhNjA",
+      "feature_type": "poi",
+      "address": "155 Sailors Bay Rd",
+      "full_address": "155 Sailors Bay Rd, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        },
+        "address": {
+          "name": "155 Sailors Bay Rd",
+          "address_number": "155",
+          "street_name": "sailors bay rd"
+        },
+        "street": {
+          "name": "sailors bay rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81077671,
+        "longitude": 151.21106426,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81089069816647,
+            "longitude": 151.21104647461232
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "4536c780-9256-4408-a5f3-53039da565eb"
+      },
+      "metadata": {}
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20750661,
+        -33.80805366
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Northbridge Tennis Courts",
+      "mapbox_id": "dXJuOm1ieHBvaTpiMmFmOTUzNi00NzM1LTRjMTgtODQyNC01MWRjZTBlMzRkNzQ",
+      "feature_type": "poi",
+      "address": "55 Sailors Bay Rd",
+      "full_address": "55 Sailors Bay Rd, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        },
+        "address": {
+          "name": "55 Sailors Bay Rd",
+          "address_number": "55",
+          "street_name": "sailors bay rd"
+        },
+        "street": {
+          "name": "sailors bay rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.80805366,
+        "longitude": 151.20750661,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81030685867185,
+            "longitude": 151.2071740768627
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "park",
+      "poi_category": [
+        "sports ground",
+        "outdoors",
+        "park",
+        "sports",
+        "tennis court"
+      ],
+      "poi_category_ids": [
+        "field",
+        "outdoors",
+        "park",
+        "sports",
+        "tennis_courts"
+      ],
+      "external_ids": {
+        "dataplor": "c61877b3-8ea5-4712-9955-9b76e9073d07"
+      },
+      "metadata": {
+        "website": "http://shore.nsw.edu.au/"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20616468,
+        -33.80788292
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Northbridge C - Shore Playing Fields",
+      "mapbox_id": "dXJuOm1ieHBvaTpkMDk5NWVjYy03MDVjLTRhNWUtODdiMy00YWE4NGRkZWUyMDk",
+      "feature_type": "poi",
+      "address": "55 Sailors Bay Rd",
+      "full_address": "55 Sailors Bay Rd, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        },
+        "address": {
+          "name": "55 Sailors Bay Rd",
+          "address_number": "55",
+          "street_name": "sailors bay rd"
+        },
+        "street": {
+          "name": "sailors bay rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.80788292,
+        "longitude": 151.20616468,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.80990776754168,
+            "longitude": 151.20586552331807
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "park",
+      "poi_category": [
+        "sports ground",
+        "outdoors",
+        "park",
+        "rugby stadium"
+      ],
+      "poi_category_ids": [
+        "field",
+        "outdoors",
+        "park",
+        "rugby_stadium"
+      ],
+      "external_ids": {
+        "dataplor": "e14fc474-5f49-49ae-9d16-5cf306ee13fe"
+      },
+      "metadata": {
+        "website": "http://shore.nsw.edu.au/"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.2068815,
+        -33.80799403
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Northbridge D - Shore Playing Fields",
+      "mapbox_id": "dXJuOm1ieHBvaToxNGRkYzk3MC00MGI4LTQwODktYTk3MS05OWYwM2M0NjA4ZGU",
+      "feature_type": "poi",
+      "address": "55 Sailors Bay Rd",
+      "full_address": "55 Sailors Bay Rd, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        },
+        "address": {
+          "name": "55 Sailors Bay Rd",
+          "address_number": "55",
+          "street_name": "sailors bay rd"
+        },
+        "street": {
+          "name": "sailors bay rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.80799403,
+        "longitude": 151.2068815,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.810016568728315,
+            "longitude": 151.20657843410584
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "park",
+      "poi_category": [
+        "sports ground",
+        "outdoors",
+        "park",
+        "soccer field",
+        "sports"
+      ],
+      "poi_category_ids": [
+        "field",
+        "outdoors",
+        "park",
+        "soccer_field",
+        "sports"
+      ],
+      "external_ids": {
+        "dataplor": "0bf49f36-90f0-43d6-919a-f4799f9e6f4e"
+      },
+      "metadata": {
+        "website": "http://shore.nsw.edu.au/"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.20582404,
+        -33.80681656
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Northbridge G - Shore Playing Fields",
+      "mapbox_id": "dXJuOm1ieHBvaToyZmFjN2IwYi0xNjgyLTQzM2MtOGExYy0yYjliZmQ0NGUxZGM",
+      "feature_type": "poi",
+      "address": "55 Sailors Bay Rd",
+      "full_address": "55 Sailors Bay Rd, Sydney 2063, Australia",
+      "place_formatted": "Sydney 2063, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDZzRP",
+          "name": "2063"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFREJLRGc",
+          "name": "Northbridge"
+        },
+        "address": {
+          "name": "55 Sailors Bay Rd",
+          "address_number": "55",
+          "street_name": "sailors bay rd"
+        },
+        "street": {
+          "name": "sailors bay rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.80681656,
+        "longitude": 151.20582404,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.806603,
+            "longitude": 151.20583
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "park",
+      "poi_category": [
+        "sports ground",
+        "outdoors",
+        "park",
+        "rugby stadium"
+      ],
+      "poi_category_ids": [
+        "field",
+        "outdoors",
+        "park",
+        "rugby_stadium"
+      ],
+      "external_ids": {
+        "dataplor": "d4eba44b-6afa-429a-b2b4-b150a19eded9"
+      },
+      "metadata": {
+        "website": "http://shore.nsw.edu.au/"
+      }
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19652646,
+        -33.81064295
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Henderson Park",
+      "mapbox_id": "dXJuOm1ieHBvaTpiNjU4NTdlOC1hOGU3LTQyMjMtYjgzYS1lOWI0OTcyM2ExM2M",
+      "feature_type": "poi",
+      "address": "24 Artarmon Rd",
+      "full_address": "24 Artarmon Rd, Sydney 2068, Australia",
+      "place_formatted": "Sydney 2068, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDcTRP",
+          "name": "2068"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpFSmxxRGc",
+          "name": "Willoughby"
+        },
+        "address": {
+          "name": "24 Artarmon Rd",
+          "address_number": "24",
+          "street_name": "artarmon rd"
+        },
+        "street": {
+          "name": "artarmon rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.81064295,
+        "longitude": 151.19652646,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.81018189111409,
+            "longitude": 151.19659476502014
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "f2405ef2-20ae-498e-aa03-003235db5d36"
+      },
+      "metadata": {}
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "coordinates": [
+        151.19288143,
+        -33.8026321
+      ],
+      "type": "Point"
+    },
+    "properties": {
+      "name": "Mowbray Road Reserve",
+      "mapbox_id": "dXJuOm1ieHBvaTphZjdiODg5ZS1mM2UyLTQ5YWQtYWQwNy1lMzE2YWQ1OGFhMDI",
+      "feature_type": "poi",
+      "address": "208 &",
+      "full_address": "208 &, Sydney 2064, Australia",
+      "place_formatted": "Sydney 2064, Australia",
+      "context": {
+        "country": {
+          "name": "Australia",
+          "country_code": "AU",
+          "country_code_alpha_3": "AUS"
+        },
+        "postcode": {
+          "id": "dXJuOm1ieHBsYzpDaTRP",
+          "name": "2064"
+        },
+        "place": {
+          "id": "dXJuOm1ieHBsYzpBWFhJRGc",
+          "name": "Sydney"
+        },
+        "locality": {
+          "id": "dXJuOm1ieHBsYzpEMWZLRGc",
+          "name": "Artarmon"
+        },
+        "address": {
+          "name": "208 &",
+          "address_number": "208",
+          "street_name": "&"
+        },
+        "street": {
+          "name": "& 220 mowbray rd"
+        }
+      },
+      "coordinates": {
+        "latitude": -33.8026321,
+        "longitude": 151.19288143,
+        "routable_points": [
+          {
+            "name": "POI",
+            "latitude": -33.80257402384961,
+            "longitude": 151.1929029005768
+          }
+        ]
+      },
+      "language": "en",
+      "maki": "marker",
+      "poi_category": [
+        "outdoors",
+        "park"
+      ],
+      "poi_category_ids": [
+        "outdoors",
+        "park"
+      ],
+      "external_ids": {
+        "dataplor": "750953dc-4731-4b27-9222-9af23351c096"
+      },
+      "metadata": {
+        "website": "http://www.willoughby.nsw.gov.au/your-neighbourhood/parks-and-playgrounds/mowbray-road-reserve/",
+        "open_hours": {
+          "periods": [
+            {
+              "open": {
+                "day": 0,
+                "time": "0000"
+              }
+            }
+          ],
+          "weekday_text": [
+            "Monday: Open 24 hours",
+            "Tuesday: Open 24 hours",
+            "Wednesday: Open 24 hours",
+            "Thursday: Open 24 hours",
+            "Friday: Open 24 hours",
+            "Saturday: Open 24 hours",
+            "Sunday: Open 24 hours"
+          ]
+        }
+      }
+    }
+  }
+]
