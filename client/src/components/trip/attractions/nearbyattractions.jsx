@@ -2,7 +2,7 @@ import React from 'react';
 import './nearbyattractions.css';
 import mountainImage from './mount-everest.jpeg';
 
-const AttractionBoxes = ({ attractions = [], onAddToRoute }) => {
+const AttractionBoxes = ({ attractions = [] }) => {
   
   // Generate stars for the rating
   const renderStars = (rating) => {

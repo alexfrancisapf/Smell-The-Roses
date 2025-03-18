@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { DndContext, closestCenter } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy, useSortable, arrayMove } from '@dnd-kit/sortable';
 import { restrictToVerticalAxis, restrictToParentElement } from '@dnd-kit/modifiers';
@@ -6,20 +6,22 @@ import { ArrowUpDown } from "lucide-react";
 import './overview.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { TripContext } from "../../context/TripContext";
 
-const Overview = ({ pois }) => {
+const Overview = () => {
+    const { tripData, setTripData } = useContext(TripContext);
     const [activeId, setActiveId] = useState(null);
     const [attractions, setAttractions] = useState([]);
     const scrollContainerRef = useRef(null);
 
     // Update attractions with names from pois
     useEffect(() => {
-        const updatedAttractions = pois.map((poi, index) => ({
+        const updatedAttractions = tripData?.routeData.map((poi, index) => ({
             id: `${index + 1}`,
-            name: poi?.name || `Attraction ${index + 1}`,
+            name: poi.name || `Attraction ${index + 1}`,
         }));
         setAttractions(updatedAttractions); 
-    }, [pois]);
+    }, [tripData]);
 
     const handleDragStart = (event) => {
         const { active } = event;
@@ -33,10 +35,17 @@ const Overview = ({ pois }) => {
         if (!over || active.id === over.id) {
             return;
         }
+
+        // Prevent swapping if the active item is the first or last attraction
+        const activeIndex = attractions.findIndex((item) => item.id === active.id);
+        const overIndex = attractions.findIndex((item) => item.id === over.id);
+
+        if (activeIndex === 0 || activeIndex === attractions.length - 1 || overIndex === 0 || overIndex === attractions.length - 1) {
+            return; // Don't allow swapping with first or last attraction
+        }
+
         // Swap attractions during drag
-        const oldIndex = attractions.findIndex((item) => item.id === active.id);
-        const newIndex = attractions.findIndex((item) => item.id === over.id);
-        setAttractions(arrayMove(attractions, oldIndex, newIndex));
+        setAttractions(arrayMove(attractions, activeIndex, overIndex));
     };
 
     const handleDragEnd = (event) => {
@@ -71,7 +80,7 @@ const Overview = ({ pois }) => {
                 </div>
                 <div className="overview-container">
                     <div className="overview-scroll" ref={scrollContainerRef}>
-                        {attractions.map((item) => (
+                        {attractions.map((item, index) => (
                             <Attraction
                                 key={item.id} 
                                 id={item.id} 
@@ -79,6 +88,8 @@ const Overview = ({ pois }) => {
                                 isActive={item.id === activeId}
                                 isDragging={item.id === activeId}
                                 onRemove={onRemove}
+                                isFirst={index === 0} // Check if it's the first attraction
+                                isLast={index === attractions.length - 1} // Check if it's the last attraction
                             />
                         ))}
                     </div>
@@ -88,10 +99,10 @@ const Overview = ({ pois }) => {
     );
 };
 
-const Attraction = ({ id, name, isDragging, onRemove }) => {
+const Attraction = ({ id, name, isDragging, onRemove, isFirst, isLast }) => {
     const { setNodeRef, attributes, listeners, transform, transition } = useSortable({ 
         id,
-        disabled: false,
+        disabled: isFirst || isLast, // Disable dragging for the first and last attraction
     });
 
     const style = {
@@ -107,25 +118,33 @@ const Attraction = ({ id, name, isDragging, onRemove }) => {
         onRemove(id);
     };
 
+    // Conditionally apply styles for first and last items
+    const attractionClassNames = `attraction ${isDragging ? 'dragging' : ''} 
+        ${isFirst ? 'first-attraction' : ''} 
+        ${isLast ? 'last-attraction' : ''}`;
+
     return (
         <div
             ref={setNodeRef}
             {...attributes}
             {...listeners}
-            className={`attraction ${isDragging ? 'dragging' : ''}`}
+            className={attractionClassNames}
             style={style}
         >
             <span className="attraction-name">{name}</span>
-            <button 
-                onClick={handleRemoveClick} 
-                className="remove-btn"
-                {...{ 
-                    onMouseDown: e => e.stopPropagation(),
-                    onTouchStart: e => e.stopPropagation(),
-                    onPointerDown: e => e.stopPropagation()
-                }}
-            > −
-            </button>
+            {/* Only show the remove button if it's not the first or last attraction */}
+            {!isFirst && !isLast && (
+                <button 
+                    onClick={handleRemoveClick} 
+                    className="remove-btn"
+                    {...{ 
+                        onMouseDown: e => e.stopPropagation(),
+                        onTouchStart: e => e.stopPropagation(),
+                        onPointerDown: e => e.stopPropagation()
+                    }}
+                > −
+                </button>
+            )}
         </div>
     );
 };

@@ -6,8 +6,6 @@ const Itinerary = ({ isLoading, generatedItinerary }) => {
     const { tripData, setTripData } = useContext(TripContext);
     const [startLocation, setStartLocation] = useState(tripData?.startLocation);
     
-    console.log(tripData?.startLocation);
-
     useEffect(() => {
         setStartLocation(tripData?.startLocation);
     }, [tripData]);

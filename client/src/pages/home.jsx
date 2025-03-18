@@ -95,7 +95,10 @@ const Home = () => {
       return;
     }
 
-    const routeCoords = [startCoords, destinationCoords];
+    const routeData = [
+      { coord: startCoords, name: startLocation.split(',')[0] },
+      { coord: destinationCoords, name: destination.split(',')[0]}
+    ];
 
     setTripData({
       startLocation,
@@ -105,7 +108,7 @@ const Home = () => {
       timeLimit,
       preferences,
       eaten,
-      routeCoords
+      routeData
     });
 
     navigate("/trip");
