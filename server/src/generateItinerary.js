@@ -7,30 +7,42 @@ const openai = new OpenAI({
   apiKey: process.env.OPEN_AI_KEY,
 });
 
-// Create prompt for itinerary
-const createPrompt = (destination, pois) => {
-  const poiNames = pois.map(poi => poi.properties.name);
-  let prompt = `Create a detailed itinerary for a trip to ${destination}. The itinerary should have any five of the following points of interest:`;
+/**
+ * Generates an itinerary prompt based on the given destination and list of POIs
+ *
+ * @param {string} destination - The name of the destination
+ * @param {{ name: string, coord: number[], category: string[] }[]} pois - An array of POI objects, each containing:
+ *   - name {string} - The name of the POI
+ *   - imagePath {string} - The file path of the image associated with the POI
 
-  poiNames.forEach(name => {
-    prompt += `\n- ${name}`;
+ * @returns {string} A prompt instructing how to generate an itinerary using the given POIs
+ * 
+ * Note: Prompt only includes 5 POIs in the itinerary, as unfortunately I am not Bill Gates
+ * 
+ */
+const createPrompt = (destination, pois) => {
+  if (pois.length == 0) {
+    return null;
+  }
+  let prompt = `Create a detailed itinerary for a trip to ${destination}, choosing from the following POIs:`;
+
+  pois.forEach(poi => {
+    prompt += `\n- ${poi.name} (${poi.imagePath})`;
   });
 
   prompt += `
   Format the itinerary as follows (do not include brackets in the final output):
 
   [Category]: [POI Name]  
+  [Image Path]
   [Description of POI]
 
-  [Category]: [POI Name]  
-  [Description of POI]
-
-  ...
+  etc...
 
   Guidelines:
-  - Only select POIs from the provided list
-  - Assign an appropriate category to each POI (e.g., Breakfast, Viewpoint, Park, Historical Site, Landmark, Museum, Activity, Restaurant, etc).
-  - Make sure descriptions are engaging, informative, and fit the assigned category.`;
+  - Choose 5 POIs from the list
+  - Assign the most fitting category from the following: Historical, Natural, Cultural, Leisure, Dining
+  - Make sure descriptions are engaging and informative`;
 
   return prompt;
 };
@@ -43,8 +55,8 @@ const generateItinerary = async (req, res) => {
   const { destination, pois } = req.body;
   const prompt = createPrompt(destination, pois);
 
-  if (prompt) { // ! Add ! at the front to enable generation
-    return res.status(400).json({ error: "No prompt provided" });
+  if (!prompt) {
+    return res.status(400).json({ error: "No prompt or POIs provided" });
   }
 
   try {

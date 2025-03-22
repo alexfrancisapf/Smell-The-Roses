@@ -1,5 +1,64 @@
 .itinerary-container {
     display: flex;
     flex-direction: column;
-    padding: 10px 40px 0px 40px;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.itinerary-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.itinerary-header-text,
+.itinerary-header-location {
+    margin: 0;
+}
+
+.itinerary-header-location {
+    margin-bottom: 20px;
+}
+
+.itinerary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(243, 243, 243);
+    border-left: 4px solid #FF4013;
+    color: rgb(24, 24, 24);
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 7px 0;
+}
+
+.itinerary-details-duration,
+.itinerary-details-eta,
+.itinerary-details-distance {
+    margin: 0;
+}
+
+.itinerary {
+    padding: 0;
+    margin-top: 15px;
+    background-color: transparent;
+}
+
+.itinerary-category {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.itinerary-image-container {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+}
+
+.itinerary-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

@@ -16,14 +16,23 @@ const Home = () => {
 
   const [timeLimit, setTimeLimit] = useState("2 hours");
   const [preferences, setPreferences] = useState({
-    beach: false,
-    mountain: false,
-    cultural: false,
-    history: false,
-    viewpoints: false,
+    waterscapes: true,
+    landscapes: true,
+    history: true,
+    culture: true,
+    viewpoints: true,
+    entertainment: true,
   });
-  const [eaten, setEaten] = useState(false);
+  const preferencesMap = {
+    waterscapes: ["beach", "river", "lake", "waterfall"],
+    landscapes: ["forest", "mountain", "park", "nature_reserve", "cave"],
+    history: ["museum", "historic_site", "monument"],
+    culture: ["art_gallery", "outdoor_sculpture"],
+    viewpoints: ["viewpoint"],
+    entertainment: ["theme_park", "zoo", "climbing_gym", "aquarium", "golf_course"],
+  };
 
+  const [eaten, setEaten] = useState(false);
   const [startLocation, setStartLocation] = useState("");
   const [destination, setDestination] = useState("");
   const [startCoords, setStartCoords] = useState(null);
@@ -94,11 +103,24 @@ const Home = () => {
       alert("Please enter both a starting point and a destination.");
       return;
     }
-
     const routeData = [
-      { coord: startCoords, name: startLocation.split(',')[0] },
-      { coord: destinationCoords, name: destination.split(',')[0]}
+      { coord: startCoords, name: startLocation.split(',')[0], category: [""] },
+      { coord: destinationCoords, name: destination.split(',')[0], category: [""] }
     ];
+
+    const duration = 0;
+    const distance = 0;
+
+    // Add preferences to the filters list
+    let filters = [];
+    Object.keys(preferences).forEach((key) => {
+      if (preferences[key]) {
+        filters.push(...preferencesMap[key]);
+      }
+    });
+    if (!eaten) {
+      filters.push("restaurant");
+    }
 
     setTripData({
       startLocation,
@@ -106,9 +128,10 @@ const Home = () => {
       destination,
       destinationCoords,
       timeLimit,
-      preferences,
-      eaten,
-      routeData
+      filters,
+      routeData,
+      duration,
+      distance
     });
 
     navigate("/trip");

@@ -1,13 +1,12 @@
 import axios from "axios";
 
-export const getPois = async (coords, filters = null) => {
-    const defaultFilters = ["Outdoors","Tourist Attraction","Park","Garden","River","Lake","Forest","Mountain","Island"];
+export const getPois = async (coords, filters) => {
     try {
         const response = await axios.get(`http://localhost:3000/fetch-pois`, {
             params: {
                 lat: coords[1],
                 lon: coords[0],
-                filters: filters || defaultFilters,
+                filters: filters
             },
         });
         const data = response.data;

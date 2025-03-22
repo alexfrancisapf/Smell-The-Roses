@@ -1,8 +1,7 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import AttractionBoxes from "../components/trip/attractions/nearbyattractions";
-import axios from "axios";
 import React, { useContext } from "react";
 import { TripContext } from "../context/TripContext";
 import "./trip.css";
@@ -11,8 +10,9 @@ import Overview from "../components/trip/overview";
 import Itinerary from "../components/trip/itinerary";
 import { getDirections } from "../utils/getDirections";
 import { getDistance } from "../utils/getDistance";
-import { getScenicRoute } from "../utils/getScenicRoute";
-import { getPois } from "../utils/getPois";
+import { getScenicRouteData } from "../utils/getScenicRouteData";
+import { generateItinerary } from "../utils/generateItinerary";
+import { getImage } from "../utils/getImage";
 
 const Trip = () => {
     const { tripData, setTripData } = useContext(TripContext);
@@ -80,20 +80,40 @@ const Trip = () => {
     const getInitialPois = async () => {
             setIsLoading(true);
 
-            const pois = await getPois(tripData?.startCoords);
-            const formattedAttractions = convertPoisToAttractions(pois);
-            setAttractions(formattedAttractions);
+            // Get scenic route data
+            const scenicRouteData = await getScenicRouteData(tripData?.startCoords, tripData?.destinationCoords, tripData?.filters);
 
-            // Add all POIs to the trip data (between the start and end)
+            // Set attractions
+            const attractions = scenicRouteData.map((poi) => ({
+                id: `poi-${Math.random().toString(36).substr(2, 9)}`,
+                name: poi.name || poi.title || "Unnamed Attraction",
+                category: poi.category || [""],
+                distance: getDistance(poi.coord, tripData?.startCoords) || 0,
+                coords: poi.coord,
+                description: "",
+            }));
+            setAttractions(attractions);
+
+            // Generate itinerary
+            const scenicRouteItineraryData = scenicRouteData.map((poi) => {
+                return {
+                    name: poi.name,
+                    imagePath: getImage(poi.category)
+                }
+            });
+            const itinerary = await generateItinerary(tripData?.startLocation, scenicRouteItineraryData);
+            setGeneratedItinerary(itinerary);
+
+            // Add scenic route data to the trip data
             const updatedRouteData = [
                 tripData?.routeData[0],
-                ...pois.map((poi) => ({
-                    coord: poi.geometry.coordinates,
-                    name: poi.properties.name,
+                ...scenicRouteData.map((poi) => ({
+                    coord: poi.coord,
+                    name: poi.name,
+                    category: poi.category
                 })),
                 tripData?.routeData[tripData?.routeData.length - 1],
             ];
-            // Update the tripData state
             setTripData((prevTripData) => ({
                 ...prevTripData,
                 routeData: updatedRouteData,
@@ -101,7 +121,6 @@ const Trip = () => {
 
             setIsLoading(false);
     };
-
     // Update the map every time tripData changes
     useEffect(() => {
         const updateMap = async () => {
@@ -109,24 +128,19 @@ const Trip = () => {
                 console.error("Map is not initialized");
                 return;
             }
-
-            // Get scenic route
-            const routeCoords = tripData?.routeData.flat().map(poi => poi.coord);
-            const scenicRouteCoords = await getScenicRoute(await getDirections(routeCoords));
-            const scenicRoute = await getDirections(scenicRouteCoords);
-
             // Clear existing markers
             const markers = document.getElementsByClassName("mapboxgl-marker");
             while (markers[0]) {
                 markers[0].remove();
             }
             // Add new markers
-            scenicRouteCoords.forEach((coord, index) => {
+            const routeCoords = tripData?.routeData.map((poi) => poi.coord);
+            routeCoords.forEach((coord, index) => {
                 new mapboxgl.Marker({
                     color:
                         index === 0
                             ? "#00FF00"
-                            : index === scenicRoute.length - 1
+                            : index === routeCoords.length - 1
                             ? "#FF0000"
                             : "#0000FF",
                 })
@@ -138,29 +152,25 @@ const Trip = () => {
             tripData?.routeData.forEach((poi) => bounds.extend(poi.coord));
             mapRef.current.fitBounds(bounds, { padding: 50 });
 
-            // Update the map with new directions
+            // Update the map with new directions and data
+            const routeData = await getDirections(routeCoords);
+
             mapRef.current.getSource("route")?.setData({
                 type: "Feature",
                 properties: {},
-                geometry: scenicRoute,
+                geometry: routeData.directions,
             });  
+
+            setTripData((prevTripData) => ({
+                ...prevTripData,
+                duration: routeData.duration,
+                distance: routeData.distance
+            }));
         };
         if (tripData?.routeData?.length > 0) {
             updateMap();
         }
-    }, [mapInitialized, tripData]);
-
-    // Convert POI data to attraction format
-    const convertPoisToAttractions = (pois) => {
-        return pois.map((poi) => ({
-            id: poi.id || `poi-${Math.random().toString(36).substr(2, 9)}`,
-            name: poi.properties.name || poi.title || "Unnamed Attraction",
-            category: poi.properties.poi_category || [""],
-            distance: getDistance(poi.geometry.coordinates, tripData?.startCoords) || 0,
-            coords: poi.geometry.coordinates,
-            description: poi.description || "",
-        }));
-    };
+    }, [mapInitialized, tripData?.routeData]);
 
     // Add attractions to the map
     useEffect(() => {
@@ -201,7 +211,7 @@ const Trip = () => {
             </div>
             <div className="right-content">
                 <Overview />
-                <Itinerary isLoading={isLoading} />
+                <Itinerary generatedItinerary={generatedItinerary} isLoading={isLoading} />
             </div>
 
             <div ref={mapContainerRef} className="map" />

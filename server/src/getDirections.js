@@ -33,15 +33,14 @@ const getDirections = async (req, res) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
-
     if (data.routes && data.routes.length) {
-      const route = data.routes[0].geometry;
-
       // Return JSON response
       return res.json({
         success: true,
         message: "Route successfully retrieved",
-        route: route
+        route: data.routes[0].geometry,
+        distance: Math.round(data.routes[0].distance),
+        duration: Math.round(data.routes[0].duration)
       });
     } else {
       console.error("No route found between the specified coordinates");
