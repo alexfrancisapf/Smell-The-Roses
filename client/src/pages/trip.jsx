@@ -26,6 +26,7 @@ const Trip = () => {
     const [attractions, setAttractions] = useState([]);
     const [generatedItinerary, setGeneratedItinerary] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [geoJson, setGeoJson] = useState(null);
 
     const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_API_KEY;
 
@@ -154,6 +155,7 @@ const Trip = () => {
 
             // Update the map with new directions and data
             const routeData = await getDirections(routeCoords);
+            setGeoJson(routeData.directions);
 
             mapRef.current.getSource("route")?.setData({
                 type: "Feature",
@@ -172,37 +174,6 @@ const Trip = () => {
         }
     }, [mapInitialized, tripData?.routeData]);
 
-    // Add attractions to the map
-    useEffect(() => {
-        if (!mapRef.current || !mapInitialized || attractions.length === 0) return;
-
-        // Remove previous attraction markers (if any)
-        const attractionMarkers = document.querySelectorAll(".attraction-marker");
-        attractionMarkers.forEach((marker) => marker.remove());
-
-        // Add attraction markers to the map
-        attractions.forEach((attraction) => {
-            if (attraction.lat && attraction.lon) {
-                const markerElement = document.createElement("div");
-                markerElement.className = "attraction-marker";
-                markerElement.style.width = "15px";
-                markerElement.style.height = "15px";
-                markerElement.style.borderRadius = "50%";
-                markerElement.style.backgroundColor = "#2196F3";
-                markerElement.style.border = "2px solid white";
-
-                new mapboxgl.Marker(markerElement)
-                    .setLngLat([attraction.lon, attraction.lat])
-                    .setPopup(
-                        new mapboxgl.Popup().setHTML(
-                            `<strong>${attraction.name}</strong><br>${attraction.category}`
-                        )
-                    )
-                    .addTo(mapRef.current);
-            }
-        });
-    }, [attractions, mapInitialized]);
-
     return (
         <div className="wrapper">
             <div className="left-content">
@@ -210,7 +181,7 @@ const Trip = () => {
                 <AttractionBoxes attractions={attractions} />
             </div>
             <div className="right-content">
-                <Overview />
+                <Overview geoJson={geoJson} />
                 <Itinerary generatedItinerary={generatedItinerary} isLoading={isLoading} />
             </div>
 

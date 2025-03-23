@@ -26,8 +26,8 @@ const Home = () => {
   const preferencesMap = {
     waterscapes: ["beach", "river", "lake", "waterfall"],
     landscapes: ["forest", "mountain", "park", "nature_reserve", "cave"],
-    history: ["museum", "historic_site", "monument"],
-    culture: ["art_gallery", "outdoor_sculpture"],
+    history: ["museum", "historic_site"],
+    culture: ["art_gallery"],
     viewpoints: ["viewpoint"],
     entertainment: ["theme_park", "zoo", "climbing_gym", "aquarium", "golf_course"],
   };

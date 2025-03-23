@@ -7,9 +7,10 @@ import './overview.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { TripContext } from "../../context/TripContext";
+import { downloadKml } from "../../utils/downloadKml";
 
-const Overview = () => {
-    const { tripData, setTripData } = useContext(TripContext);
+const Overview = ({ geoJson }) => {
+    const { tripData } = useContext(TripContext);
     const [activeId, setActiveId] = useState(null);
     const [attractions, setAttractions] = useState([]);
     const scrollContainerRef = useRef(null);
@@ -73,7 +74,7 @@ const Overview = () => {
                         <button className="sort-btn">
                             <ArrowUpDown size={27} />
                         </button>
-                        <button className="export-btn">
+                        <button className="export-btn" onClick={() => downloadKml(geoJson)}>
                             <FontAwesomeIcon className="export-btn-icon" icon={faDownload} />
                         </button>
                     </div>

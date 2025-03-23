@@ -10,6 +10,13 @@ import zooImage from '../assets/zoo.jpg';
 import aquariumImage from '../assets/aquarium.jpg';
 import sportsImage from '../assets/sports.jpg';
 import artImage from '../assets/art.jpg';
+import museumImage from '../assets/museum.jpg';
+import historicImage from '../assets/historic.jpg';
+import caveImage from '../assets/cave.jpg';
+import forestImage from '../assets/forest.jpg';
+import waterfallImage from '../assets/waterfall.jpg';
+import beachImage from '../assets/beach.jpg';
+import lakeImage from '../assets/lake.jpg';
 
 /**
  * @param {string[]} categories - An array of category strings
@@ -19,7 +26,7 @@ export const getImage = (categories) => {
     
     const categoryImages = {
         park: parkImage,
-        reserve: reserveImage,
+        nature: reserveImage,
         restaurant: restaurantImage,
         river: riverImage,
         golf: golfImage,
@@ -28,10 +35,18 @@ export const getImage = (categories) => {
         zoo: zooImage,
         aquarium: aquariumImage,
         sports: sportsImage,
-        art: artImage
+        art: artImage,
+        museum: museumImage,
+        historic: historicImage,
+        cave: caveImage,
+        forest: forestImage,
+        waterfall: waterfallImage,
+        beach: beachImage,
+        lake: lakeImage
     };
     // Priority order for images
-    const priorityOrder = ['aquarium', 'zoo', 'climbing', 'golf', 'art', 'theme', 'river', 'reserve', 'restaurant', 'sports', 'park'];
+    const priorityOrder = ['aquarium', 'zoo', 'climbing', 'museum', 'historic', 'golf', 'art', 'theme', 'beach', 'cave', 
+                            'waterfall', 'forest', 'river', 'lake', 'nature', 'restaurant', 'sports', 'park'];
     const foundCategory = priorityOrder.find(priorityCat => 
         categories.some(cat => cat.split(' ')[0] === priorityCat) && categoryImages[priorityCat]
     );

@@ -5,7 +5,7 @@ import axios from "axios";
  * @returns {Promise<{ directions: {coordinates: number[][], type: string}, duration: number, distance: number }>}
  * 
  * A promise that resolves to an object containing:
- *      - directions: An object with two properties:
+ *      - directions: A GeoJson object with two properties:
  *          - coordinates: An array of coordinates representing the route
  *          - type: The route geometry type ("LineString")
  *      - duration: Estimated travel time in seconds
