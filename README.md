@@ -1,13 +1,13 @@
 # Smell The Roses <img src="https://github.com/user-attachments/assets/8e1f8428-5523-4e34-87ea-bf0776952849" width="35px" />
 
-### Introducing Smell The Roses
+### Introducing Smell The Roses!
 Smell The Roses is a travel planning website designed to take the stress out of your journey, so you can focus on the adventure. With an easy-to-use interface, users can input a starting point and destination, select personalised filters, and generate the most scenic route tailored to their preferences.
 
 But that's not all! The website also provides an AI-generated itinerary that offers personalised trip details and suggests nearby places of interest. Whether you're looking for hidden gems or iconic spots, you can customise your route by adding or removing places along the way to make your journey even more unforgettable.
 
 Leveraging the power of MapBox API for interactive maps and OpenAI API for dynamic itinerary generation, Smell The Roses ensures that your travel experience is as unique and enjoyable as the destinations you’ll visit.
 
-## Features
+## Features ✨
 | **Feature**                    | **Description**                                                                                 |
 |---------------------------------|-------------------------------------------------------------------------------------------------|
 | **Interactive Map**             | Displays the user’s route along with places of interest                                         |
@@ -16,14 +16,14 @@ Leveraging the power of MapBox API for interactive maps and OpenAI API for dynam
 | **Dynamic Route Adjustments**   | Users can add or remove places of interest along their route                                    |
 | **Export into KML**             | Allows users to export their route as a KML file to import it into Google Maps                  |
 
-## Preview
+## Preview 📸
 ### Landing Page
 ![landing](https://github.com/user-attachments/assets/afa7dd93-40f9-4d7d-92ee-bf5332351edb)
 
 ### Trip View
-![main](https://github.com/user-attachments/assets/0de86f99-c6ff-4a35-a76e-ac02494d486d)
+![trip](https://github.com/user-attachments/assets/ad090b18-7e0c-4168-843b-a30856a87d6e)
 
-## Tech Stack
+## Tech Stack 💻
 ### Frontend
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
@@ -38,7 +38,7 @@ Leveraging the power of MapBox API for interactive maps and OpenAI API for dynam
 ### Database & Authentication
 ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)
 
-## Contributors
+## Contributors 🤝
 Smell the Roses was developed as part of [UNIHACK 2025](https://devpost.com/software/smell-the-roses)
 
 This project was made possible by the contributions of the following team members:
@@ -47,7 +47,7 @@ This project was made possible by the contributions of the following team member
 |--------------------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------------|------------------------------------------------------------|
 | [Rachel Leung](https://github.com/rach-leung)                | [Joshua Budiman](https://github.com/isopa)               | [Alex Francis](https://github.com/alexfrancisapf)             | [Ethan Leffers](https://github.com/EthanL285)               |
 
-## Installation
+## Installation ⚙️
 
 ### 1. Clone Repository
 To get started, clone this repository to your local machine:
