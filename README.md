@@ -1,4 +1,4 @@
-# Smell The Roses <img src="https://github.com/user-attachments/assets/8e1f8428-5523-4e34-87ea-bf0776952849" width="30px" />
+# Smell The Roses <img src="https://github.com/user-attachments/assets/8e1f8428-5523-4e34-87ea-bf0776952849" width="35px" />
 
 ### Introducing Smell The Roses
 Smell The Roses is a travel planning website designed to take the stress out of your journey, so you can focus on the adventure. With an easy-to-use interface, users can input a starting point and destination, select personalised filters, and generate the most scenic route tailored to their preferences.
@@ -39,7 +39,7 @@ Leveraging the power of MapBox API for interactive maps and OpenAI API for dynam
 ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)
 
 ## Contributors
-Smell the Roses was developed as part of UNIHACK 2025. 
+Smell the Roses was developed as part of [UNIHACK 2025](https://devpost.com/software/smell-the-roses)
 
 This project was made possible by the contributions of the following team members:
 
