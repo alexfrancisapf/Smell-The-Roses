@@ -52,7 +52,7 @@ This project was made possible by the contributions of the following team member
 ### 1. Clone Repository
 To get started, clone this repository to your local machine:
 ```bash
-git clone https://github.com/EthanL285/Smell-The-Roses.git
+git clone https://github.com/alexfrancisapf/Smell-The-Roses.git
 ```
 ### 2. Install Dependencies
 This project consist of both a client and server. Install the necessary dependencies for each:
